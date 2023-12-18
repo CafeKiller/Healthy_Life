@@ -1,0 +1,31 @@
+Arguments: 
+  C:\Program Files\nodejs\node.exe D:\Devtool\NodeJS\node_global\node_modules\yarn\bin\yarn.js init
+
+PATH: 
+  C:\Users\Coffee_Killer\bin;D:\Devtool\Git\mingw64\bin;D:\Devtool\Git\usr\local\bin;D:\Devtool\Git\usr\bin;D:\Devtool\Git\usr\bin;D:\Devtool\Git\mingw64\bin;D:\Devtool\Git\usr\bin;C:\Users\Coffee_Killer\bin;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.2\bin;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.2\libnvvp;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0;C:\Windows\System32\OpenSSH;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files\Java\jdk1.8.0_271\bin;D:\Devtool\Maven\apache-maven-3.9.1\bin;D:\Devtool\NodeJS\node_global;C:\Program Files\nodejs;D:\Devtool\Git\cmd;D:\IDE\WechatDevtool\微信web开发者工具\dll;D:\Devtool\MySQL\MySQL Server 5.7\bin;D:\Devtool\MongoDB\MongoDB 5017\bin;C:\Program Files (x86)\GnuWin32\bin;D:\Devtool\Gradle\gradle-8.1.1\bin;C:\Program Files\NVIDIA Corporation\Nsight Compute 2023.2.0;C:\Program Files\dotnet;C:\Program Files\Go\bin;%GOBIN%;D:\Application\XFTP7;D:\Devtool\Dart\dart-sdk\bin;D:\Application\XShell7;D:\Devtool\Redis;D:\Devtool\Python;D:\Devtool\Python\Scripts;C:\Program Files\Docker\Docker\resources\bin;C:\Users\Coffee_Killer\AppData\Local\Microsoft\WindowsApps;D:\IDE\VS Code\Microsoft VS Code\bin;C:\Users\Coffee_Killer\AppData\Roaming\npm;D:\IDE\IDEA\IntelliJ IDEA 2023.1.1\bin;D:\IDE\WebStorm\WebStorm 2023.1.1\bin;D:\IDE\PyCharm\PyCharm 2023.1.1\bin;C:\Users\Coffee_Killer\go\bin;C:\Users\Coffee_Killer\.dotnet\tools;D:\Devtool\Git\usr\bin\vendor_perl;D:\Devtool\Git\usr\bin\core_perl
+
+Yarn version: 
+  1.22.19
+
+Node version: 
+  18.16.0
+
+Platform: 
+  win32 x64
+
+Trace: 
+  Error: Can't answer a question unless a user TTY
+      at ConsoleReporter.question (D:\Devtool\NodeJS\node_global\node_modules\yarn\lib\cli.js:92864:59)
+      at Object.<anonymous> (D:\Devtool\NodeJS\node_global\node_modules\yarn\lib\cli.js:85054:38)
+      at Generator.next (<anonymous>)
+      at step (D:\Devtool\NodeJS\node_global\node_modules\yarn\lib\cli.js:310:30)
+      at D:\Devtool\NodeJS\node_global\node_modules\yarn\lib\cli.js:321:13
+
+npm manifest: 
+  No manifest
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
