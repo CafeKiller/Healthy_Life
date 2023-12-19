@@ -10,7 +10,20 @@ export const FIXED_KEY = {
 }
 
 export const DATABASE = {
-
+  development: {
+    dbName: "server",
+    user: "root",
+    password: "root",
+    host: "localhost",
+    port: 3306
+  },
+  production: {
+    dbName: "server",
+    user: "root",
+    password: "root",
+    host: "localhost",
+    port: 3306
+  }
 }
 
 // JWT token配置参数
