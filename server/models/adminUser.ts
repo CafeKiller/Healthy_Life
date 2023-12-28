@@ -1,7 +1,7 @@
 import { DataTypes, Model } from 'sequelize'
 import sequelize from '../utils/pool'
 
-class AdminUser extends Model{}
+class AdminUser extends Model { }
 
 AdminUser.init({
   id: {
@@ -24,6 +24,11 @@ AdminUser.init({
     type: DataTypes.STRING,
     allowNull: true,
     comment: "头像"
+  },
+  level: {
+    type: DataTypes.INTEGER,
+    allowNull: false,
+    comment: "权限等级"
   },
   token: {
     type: DataTypes.STRING,
