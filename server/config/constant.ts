@@ -11,14 +11,14 @@ export const FIXED_KEY = {
 
 export const DATABASE = {
   development: {
-    dbName: "server",
+    dbName: "db_life",
     user: "root",
     password: "root",
     host: "localhost",
     port: 3306
   },
   production: {
-    dbName: "server",
+    dbName: "db_life",
     user: "root",
     password: "root",
     host: "localhost",

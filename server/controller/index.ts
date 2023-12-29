@@ -1,4 +1,4 @@
-import * as fs from 'fs'
+import fs from 'fs'
 import path from 'path'
 
 const controllers = {} as { [key: string]: any}
@@ -14,8 +14,8 @@ function readFileList(dir: string) {
     if (stat.isDirectory()) {
       readFileList(path.join(dir, item))
     } else {
-      const temp = fullPath.split(__dirname + "/")[1]
-      const obj_temp = temp.replaceAll("/","_").split(".ts")[0]
+      const temp = fullPath.split(__dirname + "\\")[1]
+      const obj_temp = temp.replaceAll("\\","_").split(".ts")[0]
       controllers[obj_temp] = require(`./${temp}`)
     }
   })

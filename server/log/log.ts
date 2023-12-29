@@ -31,7 +31,7 @@ export const loggerMiddleware = async (ctx: Koa.Context, next: Koa.Next) => {
   const remoteAddress = getClientIPAddress(ctx)
   let logText =
     `${ctx.method} ${ctx.status} 
-      请求参数: ${JSON.stringify( ctx.body )} 
+      请求参数: ${JSON.stringify( ctx.request.body )} 
       响应参数: ${JSON.stringify(ctx.body)} - ${remoteAddress} - ${ms}ms`
   logger.info(logText)
 

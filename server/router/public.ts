@@ -1,7 +1,7 @@
 import koaRouter from "koa-router"
 import controllers from '../controller'
 import controller from '../controller'
-import { userLoginApi } from '../controller/admin/user/user'
+import { updatePasswordApi } from '../controller/admin/user/user'
 
 const router  = new koaRouter()
 
@@ -16,7 +16,7 @@ router.post(project.admin + "/user/register", controllers.admin_user_user.regist
 router.post(project.admin + "/user/login", controller.admin_user_user.userLoginApi)
 
 // 忘记密码(修改密码)
-router.post(project.admin + "/user/updatePassword", controllers.admin_user_user.udpatePasswordApi)
+router.post(project.admin + "/user/updatePassword", controllers.admin_user_user.updatePasswordApi)
 
 // 删除用户
 router.post(project.admin + "/user/delete", controllers.admin_user_user.deleteUserApi)
