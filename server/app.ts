@@ -25,7 +25,7 @@ app.use(responseHandler)
 // 获取端口号
 const port = FIXED_KEY.port
 // 创建服务
-const server = http.createServer(app.callback)
+const server = http.createServer(app.callback())
 // 服务监听端口
 server.listen(port)
 
