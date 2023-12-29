@@ -43,3 +43,13 @@ export const userLoginApi = async (ctx: Context, next: Next) => {
   return next()
 
 }
+
+// 忘记密码(修改密码)
+export const updatePasswordApi = async (ctx: Context, next: Next) => {
+  return next()
+}
+
+// 删除用户
+export  const deleteUserApi = async (ctx: Context, next: Next) => {
+  return next()
+}
