@@ -8,7 +8,7 @@ log4js.configure( {
   appenders: {
     everything: {
       type: "dateFile",
-      filename: __dirname + "/all-the-logs.log",
+      filename: __dirname + "/logs/all-the-logs.log",
       maxLogSize: "10M",
       backups: 20
     }
