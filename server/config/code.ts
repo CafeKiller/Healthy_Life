@@ -22,4 +22,5 @@ export const CODE = {
   adminUserIsExist: {code: 50001, message: "该管理员已存在", key: "adminUserIsExist"},
   userIsExist: {code: 50004, message: "该用户已存在", key: "adminUserIsExist"},
   userNotExist: {code: 50005, message: "用户不存在", key: "userNotExist"},
+  userIdError: {code: 50006, message: "UID 错误", key: "userIdError"}
 }

@@ -60,3 +60,12 @@ export const registerUserService = (params: registerParams) => {
 export const updateUserInfoService = (uid: number, updateInfo: updateParams) => {
   return NormalUser.update(updateInfo, {where: {uid: uid, is_del: 0}})
 }
+
+/**
+ * 通过 uid 修改用户删除状态 (非真实删除)
+ * @param uid {number} 用户id
+ * @return 数据库修改信息
+ * */
+export const deleteUserByUidService = (uid:number) => {
+  return NormalUser.update({is_del: 1}, {where: {uid: uid}})
+}

@@ -1,9 +1,11 @@
 import { Context, Next } from 'koa'
 import { CODE } from '../../config/code'
 import {
+  deleteUserByUidService,
   getUserByAccountService,
   getUserInfosService,
-  registerUserService, updateUserInfoService
+  registerUserService,
+  updateUserInfoService
 } from '../../services/user/user'
 import { generatorToken } from '../../utils/util'
 
@@ -28,6 +30,10 @@ export const registerUserApi = async (ctx: Context, next: Next) => {
   return next()
 }
 
+/**
+ * 用户登录API, 需要保证account(账户) password(用户密码)不为空, 先通过account获取用户信息,
+ * 判断用户是否存在, 确认存在后需要通过uid生成token, 并将token保存至用户信息中
+ * */
 export const loginApi = async (ctx: Context, next: Next)=>{
   let {account, password} = ctx.request.body
   if (!account || !password) throw CODE.missingParameters
@@ -44,6 +50,24 @@ export const loginApi = async (ctx: Context, next: Next)=>{
   let resultUserInfo =  await getUserInfosService(uid)
 
   ctx.body = resultUserInfo?.dataValues
+
+  return next()
+}
+
+/**
+ * 用户账号注销API, 需保证uid不能为空, 需要判断该uid是否不存在
+ * 若成功移除则返回 删除数据的数据数
+ * */
+export const removeUserApi = async (ctx: Context, next: Next)=> {
+  if (!ctx.request.body) throw CODE.missingParameters
+  let { uid } = ctx.request.body
+  if (!uid) throw CODE.missingParameters
+
+  let userInfo = await getUserInfosService(uid)
+  if(!userInfo) throw CODE.userIdError
+
+  let resultUserInfo = await deleteUserByUidService(uid)
+  ctx.body = {"delete_number": resultUserInfo}
 
   return next()
 }
