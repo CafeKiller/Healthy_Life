@@ -46,6 +46,7 @@ adminUser = {
   account: string,    // 账户 NotNull
   password: string,   // 密码 NotNull
   avatar: string,     // 头像
+  is_del
 }
 
 // 常规用户表
@@ -55,9 +56,9 @@ normalUser = {
   avatar: string,     // 用户头像 
   age: number,        // 用户年龄 NotNull                 
   sex: number,        // 用户性别
-  height: Float,     // 用户身高
-  weight: Float,     // 用户体重
-  user_tag: Array,    // 用户特征Tag
+  height: string,     // 用户身高
+  weight: string,     // 用户体重
+  user_tag: string,   // 用户特征Tag
   token: string,      // token
   is_del,
 }
@@ -66,17 +67,18 @@ normalUser = {
 dayData = {
   did: number,            // 数据id 主键 自增
   uid: number,            // 用户id NotNull
-  day_calorie: number,    // 当日摄入卡路里
-  sleep_time: Date,       // 当日睡眠时间
-  exercise_time: Date,    // 当日锻炼时间
-  day_food: string,       // 当日食物
+  calorie: number,        // 当日摄入卡路里
+  sleepTime: Date,        // 当日睡眠时间
+  exerciseTime: Date,     // 当日锻炼时间
+  foods: string,          // 当日食物
   is_del
 }
 
 // 文章表
 article = {
   aid: number,            // 文章id 主键            
-  is_origin: boolean,     // 原创标识
+  type: boolean,          // 文章类别: 0原创 1转载 2未知
+  title: string,          // 文章标题 
   content: string,        // 文章内容
   author: string,         // 文章作者 默认:佚名
   is_del,
