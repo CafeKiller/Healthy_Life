@@ -9,7 +9,6 @@ import { generatorToken } from '../../../utils/util'
 
 // 注册用户
 export const registerUserApi = async (ctx: Context, next: Next) => {
-  // @ts-ignore
   let {account, password} = ctx.request.body
   if (!account || !password) {
     throw CODE.missingParameters

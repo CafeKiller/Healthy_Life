@@ -1,5 +1,5 @@
 import { Context } from 'vm'
-import jwt, { Jwt } from 'jsonwebtoken'
+import jwt from 'jsonwebtoken'
 import { JWT } from '../config/constant'
 
 

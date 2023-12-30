@@ -1,12 +1,14 @@
 import koaRouter from "koa-router"
 import controllers from '../controller'
 import controller from '../controller'
-import { updatePasswordApi } from '../controller/admin/user/user'
 
 const router  = new koaRouter()
 
 const project = {
-  admin: "/admin"
+  admin: "/admin",
+  user: "/user",
+  data: "/data",
+  article: "/article",
 }
 
 // 注册用户

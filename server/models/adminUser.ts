@@ -8,32 +8,38 @@ AdminUser.init({
     type: DataTypes.INTEGER.UNSIGNED,
     primaryKey: true,
     autoIncrement: true,
-    comment: "主键ID",
+    comment: "管理员 主键ID",
   },
   account: {
     type: DataTypes.STRING,
     allowNull: false,
-    comment: "账号"
+    comment: "管理员 账号"
   },
   password: {
     type: DataTypes.STRING,
     allowNull: false,
-    comment: "密码"
+    comment: "管理员 密码"
   },
   avatar: {
     type: DataTypes.STRING,
     allowNull: true,
-    comment: "头像"
+    comment: "管理员 头像"
   },
   level: {
     type: DataTypes.INTEGER,
     allowNull: false,
-    comment: "权限等级"
+    comment: "管理员 权限等级"
   },
   token: {
     type: DataTypes.STRING,
     allowNull: true,
     comment: "Token"
+  },
+  is_del: {
+    type: DataTypes.INTEGER.UNSIGNED,
+    allowNull: false,
+    defaultValue: "0",
+    comment: "0:未删除, 1:已删除"
   }
 }, {
   sequelize,
