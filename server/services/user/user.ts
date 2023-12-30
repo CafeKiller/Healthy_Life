@@ -20,6 +20,7 @@ type updateParams = {
   height?: string,
   weight?: string,
   user_tag?: Array<string>,
+  token?: string,
   is_del?: boolean
 }
 
@@ -29,16 +30,16 @@ type updateParams = {
  * @return 用户信息 (但排除用户密码)
  * */
 export const getUserInfosService = (uid: number) => {
-  return NormalUser.findOne({where: {uid: uid}, attributes: {exclude:["password"]}})
+  return NormalUser.findOne({where: {uid: uid, is_del: 0}, attributes: {exclude:["password","is_del"]}})
 }
 
 /**
- * 通过 account 查询一位用户基本信息, 常用于判断用户是否已存在(防止用户冲突)
+ * 通过 account 查询一位用户基本信息, 常用于判断用户是否已存在(防止用户冲突) 或者 用户登录
  * @param account {string} 用户账户
  * @return 用户信息
  * */
-export const getUserInfoUserNameService = (account: string) => {
-  return NormalUser.findOne( {where: {account: account}} )
+export const getUserByAccountService = (account: string) => {
+  return NormalUser.findOne( {where: {account: account, is_del: 0}} )
 }
 
 /**
@@ -57,5 +58,5 @@ export const registerUserService = (params: registerParams) => {
  * @return 数据库修改信息
  * */
 export const updateUserInfoService = (uid: number, updateInfo: updateParams) => {
-  return NormalUser.update(updateInfo, {where: {uid: uid}})
+  return NormalUser.update(updateInfo, {where: {uid: uid, is_del: 0}})
 }

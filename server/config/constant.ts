@@ -28,6 +28,6 @@ export const DATABASE = {
 
 // JWT token配置参数
 export const JWT = {
-  secret: "",
+  secret: "ConanEdogawa",
   expires: 60 * 60 * 24 * 30 // 30day
 }

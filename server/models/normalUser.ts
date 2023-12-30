@@ -46,7 +46,7 @@ NormalUser.init({
     comment: "用户体重"
   },
   user_tag: {
-    type: DataTypes.ARRAY,
+    type: DataTypes.STRING,
     allowNull: true,
     comment: "用户特征Tag",
   },
@@ -58,7 +58,7 @@ NormalUser.init({
   is_del: {
     type: DataTypes.INTEGER.UNSIGNED,
     allowNull: false,
-    defaultValue: "0",
+    defaultValue: 0,
     comment: "0:未删除, 1:已删除"
   }
 },{
