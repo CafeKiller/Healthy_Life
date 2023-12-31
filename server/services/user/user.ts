@@ -12,7 +12,6 @@ type registerParams = {
 }
 
 type updateParams = {
-  account?: string,
   user_name?: string,
   password?: string,
   age?: number,
@@ -21,7 +20,6 @@ type updateParams = {
   weight?: string,
   user_tag?: Array<string>,
   token?: string,
-  is_del?: boolean
 }
 
 /**

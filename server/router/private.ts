@@ -18,5 +18,6 @@ router.get('/test', controllers.test_test.testApi)
 
 // 普通用户接口
 router.post(project.user + "/writeOff", controllers.user_user.removeUserApi)
+router.post(project.user + "/update", controllers.user_user.updateUserInfoApi)
 
 export default router

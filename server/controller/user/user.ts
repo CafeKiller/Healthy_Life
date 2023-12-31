@@ -66,8 +66,26 @@ export const removeUserApi = async (ctx: Context, next: Next)=> {
   let userInfo = await getUserInfosService(uid)
   if(!userInfo) throw CODE.userIdError
 
-  let resultUserInfo = await deleteUserByUidService(uid)
-  ctx.body = {"delete_number": resultUserInfo}
+  let result = await deleteUserByUidService(uid)
+  ctx.body = {"delete_number": result[0]}
+
+  return next()
+}
+
+/**
+ * 修改用户信息API (account, is_del除外), 需保证uid不为空, 需要判断该uid是否不存在
+ * 若成功移除则返回 修改数据的数据量
+ * */
+export const updateUserInfoApi = async (ctx: Context, next: Next)=> {
+  if (!ctx.request.body) throw CODE.missingParameters
+  let {uid, ...params} = ctx.request.body
+  if (!uid) throw CODE.needMissingParameters
+
+  let userInfo = await getUserInfosService(uid)
+  if(!userInfo) throw CODE.userNotExist
+
+  let result =  await updateUserInfoService(uid, {...params})
+  ctx.body = {"update_number": result[0]}
 
   return next()
 }

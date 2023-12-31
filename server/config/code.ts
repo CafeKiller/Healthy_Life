@@ -17,6 +17,7 @@ export const CODE = {
 
   // 40000 [ 用户行为产生的错误 ]
   missingParameters: {code: 40001, message: "参数缺失", key: "missingParameters"},
+  needMissingParameters : {code: 40002, message: "必要参数缺失", key:"needMissingParameters"},
 
   // 50000 [数据库校验产生的错误]
   adminUserIsExist: {code: 50001, message: "该管理员已存在", key: "adminUserIsExist"},
