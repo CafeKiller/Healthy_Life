@@ -2,7 +2,7 @@ import Article from '../../models/article'
 import { Op } from 'sequelize'
 
 /**
- * 通过 did 查询文章
+ * 通过 aid 查询文章
  * @param aid {number} 文章id
  * @return 文章信息
  * */

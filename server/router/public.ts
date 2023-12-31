@@ -21,4 +21,7 @@ router.post(project.admin + "/user/delete", controllers.admin_user_user.deleteUs
 router.post(project.user+"/register", controllers.user_user.registerUserApi)
 router.post(project.user+"/login", controllers.user_user.loginApi)
 
+// 文章
+router.get(project.article+"/find", controllers.article_article.getArticleByAidApi)
+
 export default router
