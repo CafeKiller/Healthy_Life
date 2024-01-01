@@ -23,5 +23,6 @@ router.post(project.user+"/login", controllers.user_user.loginApi)
 
 // 文章
 router.get(project.article+"/find", controllers.article_article.getArticleByAidApi)
+router.get(project.article+"/title/:title", controllers.article_article.getArticleByTitleListApi)
 
 export default router
