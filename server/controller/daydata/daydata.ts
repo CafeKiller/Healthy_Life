@@ -1,6 +1,7 @@
 import {Context, Next} from "koa";
 import {CODE} from "../../config/code";
-import {createDayDataService} from "../../services/data/data";
+import {createDayDataService, getDayDataService} from "../../services/data/data";
+import dayjs from "dayjs";
 
 /**
  * 添加一条每日数据, 需要传入用户的id, 和收集的数据
@@ -20,4 +21,21 @@ export const addDayData = async (ctx: Context, next: Next) => {
 
     return next()
 
+}
+
+/**
+ * 获取用户当日的数据, 需要传入uid
+ * */
+export const getCurrentDayData = async (ctx: Context, next: Next) => {
+
+    let {uid} = ctx.request.query
+    console.log("uid",uid)
+    if (!uid) throw CODE.needMissingParameters
+    if (isNaN(Number(uid))) throw CODE.errorTypeParameters
+
+
+    let result = await getDayDataService(uid)
+    ctx.body = result?.dataValues
+
+    return next()
 }

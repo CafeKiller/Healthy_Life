@@ -1,4 +1,6 @@
 import DayData from '../../models/dayData'
+import dayjs from "dayjs";
+import {Op} from "sequelize";
 
 type healthParams = {
   calorie?: number,
@@ -8,12 +10,21 @@ type healthParams = {
 }
 
 /**
- * 通过 did 查询当日数据
+ * 通过 uid 查询该用户的当日数据
  * @param uid {number} 用户id
  * @return 日数据
  * */
-export const getDayDataService = (dia: number) => {
-  return DayData.findOne({where: {dia: dia, is_del: 0} })
+export const getDayDataService = (uid: string | string[]) => {
+  let startDay= dayjs().startOf('date').format('YYYY-MM-DD HH:mm:ss')
+  let endDay = dayjs().endOf('date').format('YYYY-MM-DD HH:mm:ss')
+  return DayData.findOne({
+    where: {
+      uid: uid,
+      is_del: 0,
+      created_at: { [Op.between] : [startDay, endDay]}
+    },
+    attributes: {exclude:["password","is_del"]}
+  })
 }
 
 /**

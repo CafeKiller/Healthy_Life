@@ -28,7 +28,7 @@ type updateParams = {
  * @return 用户信息 (但排除用户密码)
  * */
 export const getUserInfosService = (uid: number) => {
-  return NormalUser.findOne({where: {uid: uid, is_del: 0}, attributes: {exclude:["password","is_del"]}})
+  return NormalUser.findOne({where: {uid: uid,  is_del: 0}, attributes: {exclude:["password","is_del"]}})
 }
 
 /**

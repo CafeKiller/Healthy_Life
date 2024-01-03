@@ -23,5 +23,6 @@ router.post(project.user + "/update", controllers.user_user.updateUserInfoApi)
 
 // 每日数据接口
 router.get(project.data+"/add", controllers.daydata_daydata.addDayData)
+router.get(project.data+"/current", controllers.daydata_daydata.getCurrentDayData)
 
 export default router
