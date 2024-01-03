@@ -2,9 +2,9 @@ import DayData from '../../models/dayData'
 
 type healthParams = {
   calorie?: number,
-  sleepTime?: Date,
-  exerciseTime?: Date,
-  foods?: Array<string>,
+  sleepTime?: string,
+  exerciseTime?: string,
+  foods?: string,
 }
 
 /**
@@ -33,7 +33,7 @@ export const getUserDayDataByTimeService = (uid: number, time: Date) => {
  * @return 数据库创建信息
  * */
 export const createDayDataService = (uid: number, params: healthParams) => {
-  return DayData.create({uid: uid, ...params})
+  return DayData.create({uid: uid, ...params},)
 }
 
 /**

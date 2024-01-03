@@ -21,17 +21,17 @@ DayData.init({
     comment: "当日数据 卡路里"
   },
   sleepTime: {
-    type: DataTypes.DATE,
+    type: DataTypes.STRING,
     allowNull: true,
     comment: "当日数据 睡眠时间"
   },
   exerciseTime: {
-    type: DataTypes.DATE,
+    type: DataTypes.STRING,
     allowNull: true,
     comment: "当日数据 锻炼时间"
   },
   foods: {
-    type: DataTypes.ARRAY,
+    type: DataTypes.STRING,
     allowNull: true,
     comment: "当日数据 食物"
   },

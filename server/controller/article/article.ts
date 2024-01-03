@@ -18,7 +18,7 @@ export const getArticleByAidApi = async (ctx: Context, next: Next) => {
 }
 
 /**
- *
+ * 使用文章标题进行模糊查询API
  * */
 export const getArticleByTitleListApi = async (ctx: Context, next: Next) => {
   let { title } = ctx.params
