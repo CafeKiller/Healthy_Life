@@ -5,6 +5,24 @@
 			"style": {
 				"navigationBarTitleText": "健康生活"
 			}
+		},
+		{
+			"path": "pages/article/index",
+			"style": {
+				"navigationBarTitleText": "文章资讯"
+			}
+		},
+		{
+			"path": "pages/life/index",
+			"style": {
+				"navigationBarTitleText": "生活空间"
+			}
+		},
+		{
+			"path": "pages/user/index",
+			"style": {
+				"navigationBarTitleText": "我的"
+			}
 		}
 	],
 	"globalStyle": {
