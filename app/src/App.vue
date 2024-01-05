@@ -13,5 +13,13 @@ export default {
 </script>
 
 <style>
-	/*每个页面公共css */
+:root {
+    --main-color: #00b09a;
+    --sub-color-1: #44c5b6
+}
+.content *,
+.content *:after,
+.content *:before {
+    box-sizing: border-box;
+}
 </style>

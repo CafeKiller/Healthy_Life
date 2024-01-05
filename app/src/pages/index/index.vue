@@ -1,8 +1,9 @@
 <template>
 	<view class="content">
-		<image class="logo" src="/static/logo.png"></image>
-		<view>
-			<text class="title">{{title}}</text>
+		<view class="current-tips-box">
+			<div class="current-data-box">
+
+			</div>
 		</view>
 	</view>
 </template>
@@ -24,26 +25,23 @@
 </script>
 
 <style>
-	.content {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		justify-content: center;
-	}
-
-	.logo {
-		height: 200rpx;
-		width: 200rpx;
-		margin: 200rpx auto 50rpx auto;
-	}
-
-	.text-area {
-		display: flex;
-		justify-content: center;
-	}
-
-	.title {
-		font-size: 36rpx;
-		color: #8f8f94;
-	}
+.content {
+	padding-top: 20px;
+	width: 100%;
+}
+.current-tips-box {
+	padding: 10px 10px;
+	margin: 0 auto 0;
+	width: 95%;
+	height: 200px;
+	border-radius: 25px;
+	display: flex;
+	background: var(--main-color);
+}
+.current-data-box {
+	width: 240px;
+	height: 180px;
+	border-radius: 25px;
+	background-color: var(--sub-color-1);
+}
 </style>

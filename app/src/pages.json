@@ -30,5 +30,36 @@
 		"navigationBarTitleText": "uni-app",
 		"navigationBarBackgroundColor": "#F8F8F8",
 		"backgroundColor": "#F8F8F8"
+	},
+	"tabBar": {
+		"color": "#7A7E83",
+		"selectedColor": "#00b09a",
+		"borderStyle": "black",
+		"backgroundColor": "#ffffff",
+		"height": "50px",
+		"fontSize": "10px",
+		"iconWidth": "24px",
+		"spacing": "3px",
+		"list": [{
+			"pagePath": "pages/index/index",
+			"iconPath": "static/images/tabber/home_off.png",
+			"selectedIconPath": "static/images/tabber/home_on.png",
+			"text": "主页"
+		}, {
+			"pagePath": "pages/life/index",
+			"iconPath": "static/images/tabber/movement_off.png",
+			"selectedIconPath": "static/images/tabber/movement_on.png",
+			"text": "生活"
+		}, {
+			"pagePath": "pages/article/index",
+			"iconPath": "static/images/tabber/message_off.png",
+			"selectedIconPath": "static/images/tabber/message_on.png",
+			"text": "资讯"
+		}, {
+			"pagePath": "pages/user/index",
+			"iconPath": "static/images/tabber/user_off.png",
+			"selectedIconPath": "static/images/tabber/user_on.png",
+			"text": "用户"
+		}]
 	}
 }
