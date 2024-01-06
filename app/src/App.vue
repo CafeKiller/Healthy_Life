@@ -15,7 +15,11 @@ export default {
 <style>
 :root {
     --main-color: #00b09a;
-    --sub-color-1: #44c5b6
+    --sub-color-1: #36d8c1;
+    --sub-color-2: #218476;
+    --coo-color-1: #114fb8;
+    --coo-color-2: #26dc00;
+    --reve-color: #ff6a00;
 }
 .content *,
 .content *:after,
