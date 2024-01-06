@@ -28,12 +28,7 @@ export default {
 }
 </script>
 
-<style>
-.content {
-    width: 100%;
-    background-color: #efefef;
-}
-
+<style scoped>
 .header {
     padding: 20px 10px 35px;
     width: 100%;

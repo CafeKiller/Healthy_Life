@@ -46,12 +46,7 @@
 	}
 </script>
 
-<style>
-.content {
-	width: 100%;
-	background-color: #efefef;
-}
-
+<style scoped>
 .current-tips-box {
 	padding: 10px 10px;
 	margin: 0 auto 0;
