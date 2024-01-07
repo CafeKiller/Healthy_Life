@@ -25,6 +25,11 @@ NormalUser.init({
     allowNull: false,
     comment: "用户密码"
   },
+  email : {
+    type: DataTypes.STRING,
+    allowNull: true,
+    comment: "用户邮箱"
+  },
   age: {
     type: DataTypes.INTEGER.UNSIGNED,
     allowNull: true,

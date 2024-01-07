@@ -14,6 +14,7 @@ type registerParams = {
 type updateParams = {
   user_name?: string,
   password?: string,
+  email?: string,
   age?: number,
   sex?: string,
   height?: string,

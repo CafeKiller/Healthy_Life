@@ -25,6 +25,11 @@ DayData.init({
     allowNull: true,
     comment: "当日数据 睡眠时间"
   },
+  stepNum: {
+    type: DataTypes.INTEGER.UNSIGNED,
+    allowNull: true,
+    comment: "当日数据 步数"
+  },
   exerciseTime: {
     type: DataTypes.STRING,
     allowNull: true,

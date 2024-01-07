@@ -7,6 +7,7 @@ type healthParams = {
   sleepTime?: string,
   exerciseTime?: string,
   foods?: string,
+  stepNum?: string,
 }
 
 /**
