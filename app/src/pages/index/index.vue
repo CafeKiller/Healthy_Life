@@ -3,7 +3,7 @@
 		<!--	今日体重相关提示模块	-->
 		<view class="current-tips-box">
 			<view class="current-data-box">
-
+				<span class="day-kg">137.1</span> <span class="kg-icon">KG</span>
 			</view>
 		</view>
 		<!--	今日卡路里消耗模块	-->
@@ -57,10 +57,23 @@
 	background: var(--main-color);
 }
 .current-data-box {
+	padding: 10px;
 	width: 240px;
 	height: 180px;
 	border-radius: 15px;
 	background-color: var(--sub-color-1);
+}
+.day-kg {
+	font-size: 64px;
+	font-weight: 800;
+	line-height: 64px;
+	letter-spacing: 3px;
+	color: #ffffff;
+}
+.kg-icon {
+	font-size: 18px;
+	letter-spacing: 3px;
+	color: #ffffff;
 }
 
 .current-cal-cont {

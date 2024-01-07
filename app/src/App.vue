@@ -26,6 +26,9 @@ export default {
 .content *:before {
     box-sizing: border-box;
 }
+body {
+    background-color: #efefef;
+}
 .content {
     width: 100%;
     background-color: #efefef;
