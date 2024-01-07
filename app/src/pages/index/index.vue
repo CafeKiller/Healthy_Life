@@ -2,9 +2,29 @@
 	<view class="content">
 		<!--	今日体重相关提示模块	-->
 		<view class="current-tips-box">
-			<view class="current-data-box">
-				<span class="day-kg">137.1</span> <span class="kg-icon">KG</span>
-			</view>
+				<view class="top-cont">
+					<view class="update-btn">
+						<span class="iconfont icon-gengxin"></span>
+					</view>
+					<view class="left">
+						<view class="current-weight">123.<span class="small">0</span></view>
+						<view class="current-time">1月7日 19:56</view>
+					</view>
+					<view class="center">
+						<view class="compare-weight">0.5 <span class="iconfont down icon-xiangshangjiantoucuxiao"></span> </view>
+						<view class="compare-desc">与昨日相比有下降</view>
+					</view>
+				</view>
+				<view class="bottom-cont">
+					<view class="bmi-cont">
+						<view class="top">BMI <span class="top-desc">正常</span> </view>
+						<view class="data">12.6</view>
+					</view>
+					<view class="brf-cont">
+						<view class="top">BRF <span class="top-desc">偏瘦</span> </view>
+						<view class="data">17.6</view>
+					</view>
+				</view>
 		</view>
 		<!--	今日卡路里消耗模块	-->
 		<view class="current-cal-cont">
@@ -48,31 +68,135 @@
 
 <style scoped>
 .current-tips-box {
-	padding: 10px 10px;
+	position: relative;
 	margin: 0 auto 0;
 	width: 100%;
 	height: 200px;
 	border-radius: 0 0 15px 15px;
 	display: flex;
-	background: var(--main-color);
+	background: var(--sub-color-1);
 }
-.current-data-box {
-	padding: 10px;
-	width: 240px;
-	height: 180px;
-	border-radius: 15px;
-	background-color: var(--sub-color-1);
+.top-cont {
+	position: relative;
+	padding:20px 20px 0;
+	width: 100%;
+	display: flex;
 }
-.day-kg {
-	font-size: 64px;
-	font-weight: 800;
-	line-height: 64px;
-	letter-spacing: 3px;
+.top-cont .update-btn {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: absolute;
+	top: 20px;
+	right: 20px;
+	width: 40px;
+	height: 40px;
+	border-radius: 10px;
+	background-color: var(--reve-color);
+	box-shadow: 2px 2px 5px rgba(0,0,0,.2);
+}
+.top-cont .update-btn .iconfont {
+	font-size: 30px;
 	color: #ffffff;
 }
-.kg-icon {
+.top-cont .current-weight {
+	font-size: 64px;
+	line-height: 1;
+	color: #ffffff;
+}
+.top-cont .current-weight .small {
+	position: relative;
+	font-size: 32px;
+	font-weight: 800;
+}
+.top-cont .current-weight .small::before {
+	content: "KG";
+	position: absolute;
+	top: -16px;
+	left: -5px;
 	font-size: 18px;
-	letter-spacing: 3px;
+	line-height: 1;
+}
+.top-cont .current-time{
+	font-size: 18px;
+	text-indent: 5px;
+	letter-spacing: 2px;
+	color: var(--sub-color-2);
+}
+
+.top-cont .center {
+	margin-left: 40px;
+}
+.compare-weight {
+	position: relative;
+	margin-top: 28px;
+	font-size: 32px;
+	font-weight: 800;
+	line-height: 1;
+	color: #ffffff;
+}
+.compare-weight .iconfont {
+	position: absolute;
+	top: 5px;
+	left: 50px;
+	font-size: 24px;
+	animation: breath .7s ease infinite;
+}
+.compare-weight .iconfont.down {
+	transform: rotateZ(-180deg);
+}
+.compare-desc {
+	font-size: 18px;
+	line-height: 30px;
+	text-indent: 5px;
+	letter-spacing: 2px;
+	color: var(--sub-color-2);
+}
+@keyframes breath {
+	100%, 0% {
+		top: 5px;
+	}
+	50% {
+		top: 8px;
+	}
+}
+.bottom-cont {
+	position: absolute;
+	left: 50%;
+	bottom: 10px;
+	display: flex;
+	justify-content: space-around;
+
+	width: 95%;
+	height: 78px;
+	border-radius: 15px;
+	background-color: var(--main-color);
+	transform: translateX(-50%);
+	z-index: 10;
+}
+.bottom-cont > view {
+	width: 45%;
+	padding-top: 10px;
+	text-align: center;
+}
+.bottom-cont view .top {
+	width: 100%;
+	font-size: 20px;
+	line-height: 24px;
+	color: #ffffff;
+}
+.bottom-cont view .top .top-desc {
+	margin-left: 5px;
+	padding: 0 6px;
+	font-size: 16px;
+	line-height: 24px;
+	border-radius: 5px;
+	color: var(--main-color);
+	background-color: #fff;
+}
+.bottom-cont view .data {
+	font-size: 24px;
+	line-height: 1.5;
 	color: #ffffff;
 }
 
