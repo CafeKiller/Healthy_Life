@@ -30,7 +30,13 @@
 		<view class="current-cal-cont">
 			<view class="title">今日卡路里消耗</view>
 			<view class="current-cal-box">
-
+				<view class="cal-left-box">
+					1200/2000
+				</view>
+				<view class="cal-right-box">
+					炸鱼薯条
+					低脂汉堡
+				</view>
 			</view>
 		</view>
 		<!--	运动计划模块  -->
@@ -58,7 +64,19 @@
 			}
 		},
 		onLoad() {
-
+			/*uni.request({
+				url: 'https://www.example.com/request',
+				data: {
+					text: 'uni.request'
+				},
+				header: {
+					'custom-header': 'hello'
+				},
+				success: (res) => {
+					console.log(res.data);
+					this.text = 'request success';
+				}
+			});*/
 		},
 		methods: {
 
@@ -218,9 +236,27 @@
 .current-cal-cont .current-cal-box {
 	position: relative;
 	margin-top: 10px;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
 	height: 140px;
 	border-radius: 15px;
 	background-color: var(--sub-color-2);
+}
+.cal-left-box {
+	width: 195px;
+	height: 120px;
+	border-radius: 10px;
+	background: #ffff;
+	font-size: 32px;
+	line-height: 120px;
+	text-align: center;
+}
+.cal-right-box {
+	width: 145px;
+	height: 120px;
+	border-radius: 10px;
+	background: #ffff;
 }
 
 .current-movement-cont {
