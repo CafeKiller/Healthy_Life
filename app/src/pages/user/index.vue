@@ -18,6 +18,12 @@
                 <view class="other-info-item">心率</view>
             </view>
         </view>
+        <view class="option-list">
+            <view class="option-item">其他</view>
+            <view class="option-item">公告</view>
+            <view class="option-item">管理</view>
+            <view class="option-item">关于</view>
+        </view>
     </view>
 </template>
 

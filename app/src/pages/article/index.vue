@@ -9,7 +9,11 @@
             <div class="tips-item"></div>
         </view>
         <view class="article-list">
-
+            <view class="article-item">
+                <view class="article-image"></view>
+                <view class="article-title"></view>
+                <view class="article-content"></view>
+            </view>
         </view>
     </view>
 </template>
