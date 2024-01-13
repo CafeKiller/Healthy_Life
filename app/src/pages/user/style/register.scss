@@ -14,4 +14,22 @@
     color: var(--sub-color-1);
     text-shadow: 3px 3px 5px rgba(0,0,0,.3);
   }
+  .register-info {
+    margin: 50upx auto 0;
+    width: 670upx;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    .uni-input {
+      padding-left: 30upx;
+      margin-top: 20upx;
+      width: 100%;
+      height: 80upx;
+      border: 1px solid var(--sub-color-1);
+    }
+    .sex-input,
+    .age-input {
+      width: 47%;
+    }
+  }
 }
