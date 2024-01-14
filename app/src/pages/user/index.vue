@@ -12,17 +12,49 @@
         </view>
         <view class="wrap">
             <view class="other-info">
-                <view class="other-info-item">体重</view>
-                <view class="other-info-item">身高</view>
-                <view class="other-info-item">血压</view>
-                <view class="other-info-item">心率</view>
+                <view class="other-info-item">
+                    <view class="title">体重</view>
+                    <view class="iconfont icon-icon"></view>
+                    <view class="data">60<span class="unit">KG</span></view>
+                </view>
+                <view class="other-info-item">
+                    <view class="title">身高</view>
+                    <view class="iconfont icon-shengao"></view>
+                    <view class="data">175<span class="unit">cm</span></view>
+                </view>
+                <view class="other-info-item">
+                    <view class="title">血压</view>
+                    <view class="iconfont icon-shouye"></view>
+                    <view class="data">90<span class="unit">mmHg</span></view>
+                </view>
+                <view class="other-info-item">
+                    <view class="title">心率</view>
+                    <view class="iconfont icon-heart-rate"></view>
+                    <view class="data">60<span class="unit">Bpm</span></view>
+                </view>
             </view>
         </view>
         <view class="option-list">
-            <view class="option-item">公告</view>
-            <view class="option-item">管理</view>
-            <view class="option-item">关于</view>
-            <view class="option-item">退出</view>
+            <view class="option-item">
+                <view class="iconfont icon-gonggao"></view>
+                公告
+                <view class="iconfont icon-qianjin"></view>
+            </view>
+            <view class="option-item">
+                <view class="iconfont icon-shezhi" ></view>
+                管理设置
+                <view class="iconfont icon-qianjin"></view>
+            </view>
+            <view class="option-item">
+                <view class="iconfont icon-wode"></view>
+                关于我们
+                <view class="iconfont icon-qianjin"></view>
+            </view>
+            <view class="option-item">
+                <view class="iconfont icon-chexiao"></view>
+                退出账号
+                <view class="iconfont icon-qianjin"></view>
+            </view>
         </view>
     </view>
 </template>
@@ -38,7 +70,7 @@ export default {
     onLoad() {
         if (!this.user_info) {
             console.error("用户未登录, 跳转至登录页面")
-            uni.navigateTo({ url:"./login" })
+            // uni.navigateTo({ url:"./login" })
         }
     },
     methods: {

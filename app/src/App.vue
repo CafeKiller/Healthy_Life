@@ -34,10 +34,9 @@ export default {
     box-sizing: border-box;
 }
 body {
-    background-color: #efefef;
+    background-color: #ffffff;
 }
 .content {
     width: 100%;
-    background-color: #efefef;
 }
 </style>
