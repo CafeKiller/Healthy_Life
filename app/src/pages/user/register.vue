@@ -9,6 +9,7 @@
             <input class="uni-input sex-input" v-model="user_info.sex"  placeholder="性别">
             <input class="uni-input email-input" v-model="user_info.email"  placeholder="用户邮箱">
         </view>
+        <button class="register-btn" size="default" @click="" type="default" >注册</button>
     </view>
 </template>
 

@@ -1,8 +1,7 @@
 .content {
   padding-top: 300upx;
+  padding-bottom: 100upx;
   width: 100%;
-  height: 95vh;
-  background-color: #fff;
   box-sizing: border-box;
   .title {
     font-weight: 800;
@@ -45,7 +44,7 @@
   }
   .other-login-title {
     position: relative;
-    margin-top: 420upx;
+    margin-top: 320upx;
     font-size: 12px;
     color: var(--sub-color-2);
     text-align: center;

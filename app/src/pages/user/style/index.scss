@@ -3,6 +3,7 @@
   width: 100%;
   height: 240px;
   background-color: var(--main-color);
+  /* box-shadow: 10px 10px 10px 10px rgba(0,0,0,.7); */
   .user-cover {
     margin: 0 auto 0;
     width: 120px;
@@ -32,22 +33,84 @@
   display: flex;
   background-color: #fff;
   .other-info {
-    padding: 15px 18px;
-    height: 430px;
+    padding: 30upx 36upx 0;
+    height: 680upx;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
     .other-info-item {
+      position: relative;
       display: flex;
       justify-content: center;
       align-items: center;
-      width: 170px;
-      height: 180px;
+      width: 300upx;
+      height: 270upx;
       border-radius: 10px;
       background-color: var(--sub-color-1);
-      font-size: 20px;
-      text-align: center;
-      color: #ffffff;
+      box-shadow: 2px 2px 5px rgba(0,0,0,.5);
+      overflow: hidden;
+      .title {
+        position: absolute;
+        top: 20upx;
+        left: 20upx;
+        font-size: 42upx;
+        font-weight: 800;
+        text-align: center;
+        color: #ffffff;
+        z-index: 10;
+      }
+      .iconfont {
+        position: absolute;
+        right: -26upx;
+        bottom: -26upx;
+        font-size: 220upx;
+        line-height: 1;
+        color: rgba( 0, 176, 154,.3);
+        z-index: 5;
+      }
+      .data {
+        position: absolute;
+        left: 26upx;
+        bottom: 20upx;
+        font-size: 64upx;
+        color: #ffffff;
+        z-index: 10;
+        .unit {
+          margin-left: 5upx;
+          font-size: 42upx;
+        }
+      }
+    }
+  }
+}
+
+.option-list {
+  margin-top: 20upx;
+  margin-bottom: 180upx;
+  width: 100%;
+  border-top: 1px solid #ccc;
+  .option-item {
+    position: relative;
+    padding-left: 30upx;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 100upx;
+    font-size: 36upx;
+    border-bottom: 1px solid #ccc;
+    letter-spacing: 10upx;
+    text-indent: 10upx;
+    color: #333333;
+    .iconfont {
+      font-size: 48upx;
+      margin-right: -6upx;
+      color: var(--main-color);
+    }
+    .icon-qianjin {
+      position: absolute;
+      right: 50upx;
+      font-size: 36upx;
+      font-weight: 800;
     }
   }
 }
