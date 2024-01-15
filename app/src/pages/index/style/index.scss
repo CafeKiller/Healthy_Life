@@ -1,3 +1,6 @@
+.content {
+    background-color: #f7f8fa;
+}
 .current-tips-box {
      position: relative;
      margin: 0 auto 0;
@@ -97,7 +100,6 @@
     bottom: 10px;
     display: flex;
     justify-content: space-around;
-
     width: 95%;
     height: 78px;
     border-radius: 15px;
@@ -137,6 +139,78 @@
     width: 100%;
     height: 200px;
     background-color: #fff;
+    .current-cal-box {
+        position: relative;
+        margin-top: 10px;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        height: 140px;
+        border-radius: 15px;
+        background-color: var(--sub-color-1);
+        .cal-left-box {
+            position: relative;
+            width: 380upx;
+            height: 120px;
+            border-radius: 10px;
+            background: rgba(255, 255, 255,.3);
+            font-size: 64upx;
+            line-height: 64upx;
+            text-align: center;
+            overflow: hidden;
+            .current {
+                position: absolute;
+                left: 30upx;
+                top: 50upx;
+                font-weight: 800;
+                color: var(--reve-color);
+            }
+            .center {
+                position: absolute;
+                font-weight: 800;
+                left: 50%;
+                top: 95upx;
+                color: #ffffff;
+                transform: translateX(-50%) rotateZ(30deg);
+            }
+            .target {
+                position: absolute;
+                font-weight: 800;
+                right: 30upx;
+                bottom: 30upx;
+                color: #ffffff;
+            }
+            .iconfont {
+                position: absolute;
+                bottom: 10upx;
+                font-size: 160upx;
+                color: #ffffff;
+                opacity: .6;
+            }
+        }
+        .cal-right-box {
+            position: relative;
+            padding: 10upx;
+            width: 145px;
+            height: 120px;
+            border-radius: 10px;
+            background: rgba(255, 255, 255,.5);
+            overflow: hidden;
+            .item {
+                font-size: 32upx;
+                line-height: 48upx;
+                color: #ffffff;
+                text-shadow: 2upx 2upx 10upx #666;
+            }
+            .icon-shiwu- {
+                position: absolute;
+                right: 6upx;
+                bottom: -12upx;
+                font-size: 120upx;
+                color: #ffffff;
+            }
+        }
+    }
 }
 .current-sheep-cont>.title,
 .current-movement-cont>.title,
@@ -147,31 +221,7 @@
     color: #333333;
     letter-spacing: 2px;
 }
-.current-cal-cont .current-cal-box {
-    position: relative;
-    margin-top: 10px;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    height: 140px;
-    border-radius: 15px;
-    background-color: var(--sub-color-2);
-}
-.cal-left-box {
-    width: 195px;
-    height: 120px;
-    border-radius: 10px;
-    background: #ffff;
-    font-size: 32px;
-    line-height: 120px;
-    text-align: center;
-}
-.cal-right-box {
-    width: 145px;
-    height: 120px;
-    border-radius: 10px;
-    background: #ffff;
-}
+
 
 .current-movement-cont {
     padding: 15px 10px;
@@ -180,18 +230,35 @@
     background-color: #fff;
     .current-aerobic-box,
     .current-movement-box {
-        margin: 15px auto 0;
+        position: relative;
+        padding-left: 30upx;
+        margin: 30upx auto 0;
         width: 700upx;
-        height: 120px;
-        border-radius: 5px;
+        height: 240upx;
+        border-radius: 10upx;
         background-color: var(--reve-color);
+        overflow: hidden;
         .title {
-            font-size: 24px;
+            padding-top: 20upx;
+            font-size: 48upx;
             color: #ffffff;
         }
         .data {
+            margin-top: 60upx;
             font-size: 22px;
             color: #ffffff;
+        }
+        .iconfont {
+            position: absolute;
+            right: 20upx;
+            bottom: -20upx;
+            font-size: 240upx;
+            line-height: 240upx;
+            color: #ffffff;
+            opacity: .4;
+        }
+        .icon-yundong- {
+            font-size: 260upx;
         }
     }
     .current-aerobic-box {

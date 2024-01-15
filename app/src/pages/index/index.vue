@@ -31,11 +31,16 @@
 			<view class="title">今日卡路里消耗</view>
 			<view class="current-cal-box">
 				<view class="cal-left-box">
-					1200/2000
+					<span class="current">1200</span>
+					<span class="center">/</span>
+					<span class="target">2000</span>
+					<view class="iconfont icon-qialuli"></view>
 				</view>
 				<view class="cal-right-box">
-					炸鱼薯条
-					低脂汉堡
+					<view class="item">炸鱼薯条</view>
+					<view class="item">低脂汉堡</view>
+					<view class="item">三明治</view>
+					<view class="iconfont icon-shiwu-"></view>
 				</view>
 			</view>
 		</view>
@@ -44,11 +49,13 @@
 			<view class="title">今日运动规划</view>
 			<view class="current-movement-box">
 				<view class="title">步数</view>
-				<view class="data">8000/10000 步数</view>
+				<view class="data">8000/10000 步</view>
+				<view class="iconfont icon-paobu"></view>
 			</view>
 			<view class="current-aerobic-box">
 				<view class="title">有氧运动</view>
 				<view class="data">50min/150min</view>
+				<view class="iconfont icon-yundong-"></view>
 			</view>
 		</view>
 
