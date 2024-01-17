@@ -5,6 +5,7 @@
   border-radius: 0 0 0 90upx;
   background-color: #fff;
   box-shadow: 4upx 4upx 20upx rgba(0,0,0,.25);
+  border-bottom: 4upx solid var(--main-color);
 }
 
 .wrap {
@@ -30,6 +31,18 @@
       left: 10upx;
       font-size: 48upx;
       color: var(--main-color);
+    }
+    .iconfont {
+      position: absolute;
+      bottom: -30upx;
+      right: -50upx;
+      font-size: 260upx;
+      color:#ffff;
+      text-align: center;
+      vertical-align: middle;
+      border-radius: 10upx;
+      color: var(--coo-color-2);
+      opacity: .5;
     }
   }
 }

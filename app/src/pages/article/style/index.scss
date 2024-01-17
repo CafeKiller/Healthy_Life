@@ -1,0 +1,118 @@
+.search-cont {
+  padding: 4upx 20upx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 100upx;
+  .search-input {
+    padding-left: 20upx;
+    width: 90%;
+    height: 72upx;
+    border-bottom: 2upx solid var(--sub-color-2);
+  }
+  .search-btn {
+    margin-left: 10upx;
+    width: 10%;
+    height: 72upx;
+    line-height: 72upx;
+    border-radius: 50%;
+    text-align: center;
+    border: 2upx solid var(--sub-color-2);
+    .iconfont {
+      font-size: 38upx;
+      font-weight: 800;
+      color: var(--sub-color-2);
+    }
+  }
+}
+
+.tips-cont {
+  padding: 0 10upx;
+  margin: 30upx auto 30upx;
+  width: 100%;
+  height: 200upx;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  .tips-item {
+    position: relative;
+    width: 340upx;
+    height: 200upx;
+    border-radius: 20upx;
+    background-color: var(--sub-color-1);
+    box-shadow: 2upx 2upx 10upx rgba(0,0,0,.3);
+    overflow: hidden;
+    .title {
+      position: absolute;
+      bottom: 20upx;
+      left: 20upx;
+      font-size: 48upx;
+      color: #ffffff;
+      text-shadow: 2upx 2upx 10upx rgba(0,0,0, .3);
+      z-index: 10;
+    }
+    .iconfont {
+      position: absolute;
+      right: -20upx;
+      bottom: -10upx;
+      font-size: 220upx;
+      color: #ffffff;
+      opacity: .4;
+    }
+    .icon-baike {
+      right: -30upx;
+      bottom: -30upx;
+      font-size: 240upx;
+    }
+  }
+}
+.article-list {
+  margin: 0 auto 0;
+  width: 710upx;
+  .article-item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-bottom: 20upx;
+    width: 700upx;
+    height: 240upx;
+    border-radius: 10upx;
+    border-bottom: 2upx solid #cccccc;
+    //box-shadow: 2upx 4upx 8upx rgba(0,0,0,.2);
+    .article-image {
+      width: 280upx;
+      height: 200upx;
+      border-radius: 10upx;
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 10upx;
+      }
+    }
+    .article-title {
+      margin-top: 20upx;
+      align-self: start;
+      margin-left: 20upx;
+      width: 390upx;
+      height: 80upx;
+      font-size: 32upx;
+      line-height: 40upx;
+      color: #000;
+      word-break: break-all;
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+    }
+    .article-cont {
+      position: absolute;
+      right: 15upx;
+      bottom: 20upx;
+      font-size: 24upx;
+      text-align: right;
+      color: #666666;
+    }
+  }
+}

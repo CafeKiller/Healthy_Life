@@ -2,18 +2,35 @@
     <view class="content">
         <view class="search-cont">
             <input class="search-input" type="input" placeholder="请输入相关文章关键字"></input>
-            <view class="search-btn" size="mini" >搜</view>
+            <view class="search-btn" size="mini" >
+                <span class="iconfont icon-fangdajing"></span>
+            </view>
         </view>
         <view class="tips-cont">
-            <div class="tips-item"></div>
-            <div class="tips-item"></div>
+            <div class="tips-item">
+                <view class="title">专业咨询</view>
+                <view class="iconfont icon-baike"></view>
+            </div>
+            <div class="tips-item">
+                <view class="title">智能建议</view>
+                <view class="iconfont icon-rengongzhinengdanao"></view>
+            </div>
         </view>
         <view class="article-list">
-            <view class="article-item">
-                <view class="article-image"></view>
-                <view class="article-title"></view>
-                <view class="article-content"></view>
+            <view v-for="(item, index) in articleList" :key="index">
+                <view class="article-item">
+                    <view class="article-image">
+                        <img src="@/static/temp/1.jpg" alt="">
+                    </view>
+                    <view class="article-title">“打鼾像唱歌”可能并不是睡得香</view>
+                    <view class="article-cont">
+                        <p class="tags">打鼾 睡觉 呼吸</p>
+                        <p class="author">科技日报</p>
+                        <p class="time">2023年10月31日 10:11</p>
+                    </view>
+                </view>
             </view>
+
         </view>
     </view>
 </template>
@@ -22,7 +39,16 @@
 export default {
     data() {
         return {
-            title: '文章页面'
+            title: '文章页面',
+            articleList: [
+                {
+                    img: "@/static/temp/1.jpg",
+                    title: "“打鼾像唱歌”可能并不是睡得香",
+                    tags: "打鼾 睡觉 呼吸",
+                    author: "科技日报",
+                    time: "2023年10月31日 10:11"
+                }
+            ]
         }
     },
     onLoad() {
@@ -35,43 +61,5 @@ export default {
 </script>
 
 <style scoped>
-.search-cont {
-    padding: 2px 10px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    height: 50px;
-}
-.search-input {
-    padding-left: 10px;
-    width: 90%;
-    height: 36px;
-    border-bottom: 1px solid var(--sub-color-2);
-}
-.search-btn {
-    margin-left: 5px;
-    width: 10%;
-    height: 36px;
-    line-height: 36px;
-    border-radius: 50%;
-    text-align: center;
-    border: 1px solid var(--sub-color-2);
-}
-
-.tips-cont {
-    padding: 0 10px;
-    margin: 15px auto 15px;
-    width: 100%;
-    height: 100px;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-}
-.tips-item {
-    width: 45%;
-    height: 100px;
-    border-radius: 15px;
-    background-color: var(--sub-color-1);
-}
+@import "./style/index.scss";
 </style>
