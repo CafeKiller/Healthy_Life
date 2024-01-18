@@ -47,6 +47,7 @@ export const getUserByAccountService = (account: string) => {
  * @return 数据库创建信息
  * */
 export const registerUserService = (params: registerParams) => {
+
   return NormalUser.create({...params})
 }
 

@@ -16,6 +16,7 @@ import { generatorToken } from '../../utils/util'
  * */
 export const registerUserApi = async (ctx: Context, next: Next) => {
   let {account, user_name, password} = ctx.request.body
+  console.log(account)
   if (!account || !user_name || !password) {
     throw CODE.missingParameters
   }
@@ -24,7 +25,6 @@ export const registerUserApi = async (ctx: Context, next: Next) => {
   if (accountExistInfo) throw CODE.userIsExist
 
   let resultUserInfo =  await registerUserService({account, user_name, password})
-
   ctx.body = resultUserInfo.dataValues
 
   return next()

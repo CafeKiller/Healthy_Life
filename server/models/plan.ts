@@ -11,19 +11,20 @@ Plan.init({
         comment: "目标计划 主键id"
     },
     uid: {
-      type: DataTypes.INTEGER.UNSIGNED,
-      allowNull: false,
-      comment: "目标计划 对应UID"
+        type: DataTypes.INTEGER.UNSIGNED,
+        allowNull: false,
+        defaultValue: 0,
+        comment: "目标计划 对应UID"
     },
     bloodPressure: {
-      type: DataTypes.STRING,
-      allowNull: true,
-      comment: "目标计划 血压"
+        type: DataTypes.STRING,
+        allowNull: true,
+        comment: "目标计划 血压"
     },
     bmi: {
-      type: DataTypes.STRING,
-      allowNull: true,
-      comment: "目标计划 BMI"
+        type: DataTypes.STRING,
+        allowNull: true,
+        comment: "目标计划 BMI"
     },
     weight: {
         type: DataTypes.STRING,
@@ -53,7 +54,7 @@ Plan.init({
     }
 },{
     sequelize,
-    modelName: "normalUser",
+    modelName: "plan",
     freezeTableName: true
 })
 

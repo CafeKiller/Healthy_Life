@@ -13,6 +13,7 @@ DayData.init({
   uid: {
     type: DataTypes.INTEGER.UNSIGNED,
     allowNull: false,
+    defaultValue: 0,
     comment: "数据关联用户id"
   },
   calorie: {

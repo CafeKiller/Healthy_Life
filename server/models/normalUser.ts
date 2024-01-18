@@ -8,6 +8,7 @@ NormalUser.init({
     type: DataTypes.INTEGER.UNSIGNED,
     primaryKey: true,
     autoIncrement: true,
+    defaultValue: 0,
     comment: "用户 主键id"
   },
   account: {
