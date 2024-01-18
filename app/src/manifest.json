@@ -1,6 +1,21 @@
 {
 	"name": "Healthy_Life",
 	"appid": "",
+	"h5": {
+		"devServer": {
+			"https": false,
+			"port": "8080",
+			"historyApiFallback": true,
+			"allowedHosts": "all",
+			"proxy":{
+				"/api":{
+					"target": "http://localhost:2233/",
+					"changeOrigin":true,
+					"secure": false
+				}
+			}
+		}
+	},
 	"description": "",
 	"versionName": "1.0.0",
 	"versionCode": "100",

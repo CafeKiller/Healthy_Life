@@ -68,7 +68,7 @@ const config = {
   plugins
 }
 
-const UNI_H5_TEST = '**/@dcloudio/uni-h5/dist/index.umd.min.js'
+const UNI_H5_TEST = '**/@dcloudio/uni-h5/dist/index.scss.umd.min.js'
 if (process.env.NODE_ENV === 'production') {
   config.overrides = [{
     test: UNI_H5_TEST,
