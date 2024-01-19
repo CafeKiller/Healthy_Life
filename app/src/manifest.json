@@ -3,7 +3,6 @@
 	"appid": "",
 	"h5": {
 		"devServer": {
-			"https": false,
 			"port": "8080",
 			"historyApiFallback": true,
 			"allowedHosts": "all",
@@ -11,7 +10,10 @@
 				"/api":{
 					"target": "http://localhost:2233/",
 					"changeOrigin":true,
-					"secure": false
+					"secure": false,
+					"pathRewrite": {
+						"^/api" : ""
+					}
 				}
 			}
 		}

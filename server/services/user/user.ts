@@ -8,6 +8,7 @@ type registerParams = {
   sex?: string,
   height?: string,
   weight?: string,
+  email?: string,
   user_tag?: Array<string>,
 }
 
