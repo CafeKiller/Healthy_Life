@@ -2,8 +2,8 @@
     <view class="content">
         <view class="title">LOGIN</view>
         <view class="login-info">
-            <input class="uni-input account-input" v-model="account" type="number" @blur="inputAccount" focus placeholder="用户账号" />
-            <input class="uni-input password-input" v-model="password" password @blur="inputPassword" placeholder="密码" />
+            <input class="uni-input account-input" v-model="loginAccount" type="number" @blur="inputAccount" focus placeholder="用户账号" />
+            <input class="uni-input password-input" v-model="loginPassword" password @blur="inputPassword" placeholder="密码" />
             <button class="login-btn" size="default" @click="submitInfo()" type="default" >登录</button>
         </view>
         <view class="register-link" @click="goRegisterPage">没有账号? 点击此处注册</view>
@@ -23,8 +23,8 @@ export default {
 
     data() {
         return {
-            account: "",
-            password: ""
+            loginAccount: "",
+            loginPassword: ""
         };
     },
     computed: {
@@ -40,10 +40,10 @@ export default {
             // TODO 检查密码格式是否合法
         },
         async submitInfo() {
-            if (!this.account) return
-            if (!this.password) return
-            await this.userLogin({account: this.account, password: this.password})
-            console.log(this.user)
+            if (!this.loginAccount) return
+            if (!this.loginPassword) return
+            console.log(this.loginAccount, this.loginPassword)
+            await this.userLogin({_account: this.loginAccount, _password: this.loginPassword})
         },
         goRegisterPage: function () {
             uni.navigateTo({url: "./register"})

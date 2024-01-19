@@ -15,12 +15,12 @@ const store = new Vuex.Store({
     },
     actions: {
         userLogin: (context, newVal) => {
-            let {account, password} = newVal
             uni.request({
                 url: '/api/user/login',
                 method: "POST",
                 data: {
-                    account, password,
+                    account: newVal._account,
+                    password: newVal._password,
                 },
                 header: {
                     'Content-Type': 'application/x-www-form-urlencoded',
@@ -28,8 +28,10 @@ const store = new Vuex.Store({
                 },
                 success: (res) => {
                     if(res.data.data) {
-                        console.log(res)
+                        // 保存参数至VueX
                         context.commit("setUser", res.data.data)
+                        // 备份至缓存中
+                        uni.setStorageSync("user_data", res.data.data)
                     }
                 }
             })

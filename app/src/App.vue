@@ -1,4 +1,6 @@
 <script>
+import { mapMutations} from "vuex";
+
 export default {
     data() {
         return {
@@ -7,15 +9,27 @@ export default {
             }
         }
     },
+    methods: {
+      ...mapMutations(["setUser"])
+    },
 		onLaunch: function() {
-			// console.log('App Launch')
+      uni.getStorage({
+          key: "user_data",
+          success: (res)=>{
+            console.log("App Launch => ", res.data)
+            this.setUser(res.data)
+          }
+      })
 		},
 		onShow: function() {
 			// console.log('App Show')
 		},
 		onHide: function() {
 			// console.log('App Hide')
-		}
+		},
+    created() {
+
+    },
 	}
 </script>
 
