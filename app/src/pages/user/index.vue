@@ -70,7 +70,7 @@ export default {
     onLoad() {
         if (!this.user_info) {
             console.error("用户未登录, 跳转至登录页面")
-            // uni.navigateTo({ url:"./login" })
+            uni.navigateTo({ url:"./login" })
         }
     },
     methods: {

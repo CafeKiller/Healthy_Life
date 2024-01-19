@@ -20,13 +20,13 @@
             <view v-for="(item, index) in articleList" :key="index">
                 <view class="article-item">
                     <view class="article-image">
-                        <img src="@/static/temp/1.jpg" alt="">
+                        <img :src="img_url_prefix + item.img" alt="">
                     </view>
-                    <view class="article-title">“打鼾像唱歌”可能并不是睡得香</view>
+                    <view class="article-title">{{item.title}}</view>
                     <view class="article-cont">
-                        <p class="tags">打鼾 睡觉 呼吸</p>
-                        <p class="author">科技日报</p>
-                        <p class="time">2023年10月31日 10:11</p>
+                        <p class="tags">{{item.tags}}</p>
+                        <p class="author">{{item.author}}</p>
+                        <p class="time">{{item.time}}</p>
                     </view>
                 </view>
             </view>
@@ -40,14 +40,15 @@ export default {
     data() {
         return {
             title: '文章页面',
+            img_url_prefix: "http://localhost:9999/project/HL/static/",
             articleList: [
                 {
-                    img: "@/static/temp/1.jpg",
+                    img: "1.jpg",
                     title: "“打鼾像唱歌”可能并不是睡得香",
                     tags: "打鼾 睡觉 呼吸",
                     author: "科技日报",
                     time: "2023年10月31日 10:11"
-                }
+                },
             ]
         }
     },

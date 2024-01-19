@@ -4,7 +4,7 @@
         <view class="login-info">
             <input class="uni-input account-input" v-model="account" type="number" @blur="inputAccount" focus placeholder="用户账号" />
             <input class="uni-input password-input" v-model="password" password @blur="inputPassword" placeholder="密码" />
-            <button class="login-btn" size="default" @click="submitInfo" type="default" >登录</button>
+            <button class="login-btn" size="default" @click="submitInfo()" type="default" >登录</button>
         </view>
         <view class="register-link" @click="goRegisterPage">没有账号? 点击此处注册</view>
         <view class="other-login-title">其他登录方式</view>
@@ -17,24 +17,33 @@
 </template>
 
 <script>
+import { mapActions, mapGetters, mapState } from "vuex";
+
 export default {
+
     data() {
         return {
             account: "",
             password: ""
         };
     },
+    computed: {
+        ...mapState(['user']),
+        ...mapGetters(['getUser'])
+    },
     methods: {
+        ...mapActions(["userLogin"]),
         inputAccount: function (event) {
             // TODO 检查账户格式是否有效
         },
         inputPassword: function (event) {
             // TODO 检查密码格式是否合法
         },
-        submitInfo: function () {
+        async submitInfo() {
             if (!this.account) return
             if (!this.password) return
-            // TODO 提交登录信息
+            await this.userLogin({account: this.account, password: this.password})
+            console.log(this.user)
         },
         goRegisterPage: function () {
             uni.navigateTo({url: "./register"})
