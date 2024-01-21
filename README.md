@@ -44,3 +44,43 @@
 若需修改, 则进入 /app/src/manifest.json 进行配置 
 ```
 
+
+
+## nginx
+
+用来部署静态资源文件
+
+### 部署
+| 必要环境  | 版本要求   | 相关链接                                    | 其他说明  |
+|:------|:-------|:----------------------------------------|:------|
+| nginx | 1.24.0 | https://nginx.p2hp.com/en/download.html | 中文网链接 |
+
+- 将 /project/ 目录放到nginx目录下的 /html/内
+- 并修改/conf/nginx.conf文件 (参考下文)
+- 然后启动nginx.exe即可
+
+```conf
+....
+http {
+    ......
+    # 直接复制粘贴即可
+    # project Healthy_Life static resource
+    server {
+    	charset utf-8;
+        listen       9999;
+        server_name  localhost;
+	autoindex on;
+	add_header Cache-Control "no-cache, must-revalidate";
+
+        location / {
+	    root html;
+	    add_header Access-Control-Allow-Origin *;
+        }
+    }
+}
+```
+
+## MySQL
+注意: 此为可选项。可以让后端服务的sequelize自动生成后再运行db_life.sql, 添加测试数据.
+也可以自行创建db_life库, 在运行db_life.sql, 添加测试数据.
+
