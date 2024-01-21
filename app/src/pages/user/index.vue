@@ -5,9 +5,9 @@
                 <image src="/static/user_def.png"></image>
             </view>
             <view class="user-info">
-                <view class="info-item">年龄: ---</view>
-                <view class="info-item">昵称: ---</view>
-                <view class="info-item">性别: ---</view>
+                <view class="info-item">年龄: {{user.age}}</view>
+                <view class="info-item">昵称: {{user.user_name}}</view>
+                <view class="info-item">性别: {{user.sex}}</view>
             </view>
         </view>
         <view class="wrap">
@@ -61,14 +61,19 @@
 
 <script>
 
+import {mapState} from "vuex";
+
 export default {
     data() {
         return {
-            user_info: null
+            // user_info: null
         }
     },
+    computed: {
+        ...mapState(['user']),
+    },
     onLoad() {
-        if (!this.user_info) {
+        if (!this.user) {
             console.error("用户未登录, 跳转至登录页面")
             uni.navigateTo({ url:"./login" })
         }

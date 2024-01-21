@@ -42,7 +42,6 @@ export default {
         async submitInfo() {
             if (!this.loginAccount) return
             if (!this.loginPassword) return
-            console.log(this.loginAccount, this.loginPassword)
             await this.userLogin({_account: this.loginAccount, _password: this.loginPassword})
         },
         goRegisterPage: function () {

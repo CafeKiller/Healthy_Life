@@ -20,13 +20,13 @@
             <view v-for="(item, index) in articleList" :key="index">
                 <view class="article-item">
                     <view class="article-image">
-                        <img :src="img_url_prefix + item.img" alt="">
+                        <img :src="img_url_prefix + item.image" alt="">
                     </view>
                     <view class="article-title">{{item.title}}</view>
                     <view class="article-cont">
                         <p class="tags">{{item.tags}}</p>
                         <p class="author">{{item.author}}</p>
-                        <p class="time">{{item.time}}</p>
+                        <p class="time">{{item.updated_at}}</p>
                     </view>
                 </view>
             </view>
@@ -42,18 +42,27 @@ export default {
             title: '文章页面',
             img_url_prefix: "http://localhost:9999/project/HL/static/",
             articleList: [
-                {
-                    img: "1.jpg",
-                    title: "“打鼾像唱歌”可能并不是睡得香",
-                    tags: "打鼾 睡觉 呼吸",
-                    author: "科技日报",
-                    time: "2023年10月31日 10:11"
-                },
+
             ]
         }
     },
+    computed: {
+        articleList(){
+            return
+        }
+    },
     onLoad() {
-
+        uni.request({
+            url: "/api/article/all",
+            method: "GET",
+            success: (res) => {
+                console.log(res)
+                if(res.data.data) {
+                    this.articleList = res.data.data.result
+                    console.log("articleList",this.articleList)
+                }
+            }
+        })
     },
     methods: {
 

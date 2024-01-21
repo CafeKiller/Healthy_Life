@@ -1,20 +1,88 @@
 .header {
+  position: relative;
   padding: 40upx 20upx 70upx;
   width: 100%;
-  height: 460upx;
+  height: 280upx;
   border-radius: 0 0 0 90upx;
-  background-color: #fff;
+  background-color: rgba(0, 176, 154, .6);
   box-shadow: 4upx 4upx 20upx rgba(0,0,0,.25);
   border-bottom: 4upx solid var(--main-color);
+  .tips {
+    width: 360upx;
+    font-size: 36upx;
+    color: #ffffff;
+    opacity: .7;
+  }
+  .mark {
+    width: 280upx;
+    padding-left: 20upx;
+    font-size: 100upx;
+    font-weight: 800;
+    text-align: center;
+    color: #ffffff;
+    span {
+      margin-left: 10upx;
+      font-size: 40upx;
+      font-weight: 800;
+    }
+  }
+  .desc {
+    position: absolute;
+    right: 30upx;
+    top: 40upx;
+    width: 300upx;
+    font-size: 28upx;
+    line-height: 32upx;
+    color: #ffffff;
+    span {
+      font-size: 32upx;
+      font-weight: 800;
+    }
+    p {
+      text-indent: 40upx;
+    }
+  }
+}
+
+.nav {
+  margin: 30upx auto 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 700upx;
+  height: 80upx;
+  .item {
+    width: 200upx;
+    height: 80upx;
+    text-align: center;
+    line-height: 80upx;
+    font-size: 32upx;
+    background-color: var(--main-color);
+    color: #ffffff;
+    border-radius: 10upx;
+    box-shadow: 0 2upx 10upx 3upx rgba(0,0,0,.3);
+    &.active {
+      background-color: var(--reve-color);
+    }
+  }
+
 }
 
 .wrap {
-  padding: 60upx 12upx 0;
+  position: relative;
+  padding: 100upx 12upx 0;
   width: 100%;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-around;
+  .header-tips {
+    position: absolute;
+    top: 30upx;
+    width: 100%;
+    text-align: center;
+    color: #999999;
+  }
   .item {
     position: relative;
     margin-bottom: 40upx;
@@ -23,7 +91,7 @@
     border-radius: 20upx;
     background-color: #fff;
     box-shadow: 2px 2px 10px rgba(0,0,0,.2);
-    border: 4upx solid var(--coo-color-2);
+    border: 4upx solid var(--main-color);
     overflow: hidden;
     .title {
       position: absolute;
@@ -41,8 +109,35 @@
       text-align: center;
       vertical-align: middle;
       border-radius: 10upx;
-      color: var(--coo-color-2);
+      color: var(--main-color);
       opacity: .5;
+    }
+    .desc {
+      position: absolute;
+      top: 220upx;
+      left: 20upx;
+      font-size: 28upx;
+      line-height: 36upx;
+      .state {
+        font-size: 30upx;
+        font-weight: 800;
+        &.down {
+          color: var(--coo-color-2);
+        }
+        &.up {
+          color: red;
+        }
+      }
+      .data {
+        font-weight: 800;
+        font-size: 40upx;
+        line-height: 60upx;
+        color: var(--reve-color);
+      }
+      .tips {
+        font-size: 24upx;
+        color: #666666;
+      }
     }
   }
 }
