@@ -60,6 +60,7 @@ normalUser = {
   weight: string,     // 用户体重
   user_tag: string,   // 用户特征Tag
   token: string,      // token
+  email: string,      // 用户邮箱
   is_del,
 }
 
@@ -74,6 +75,19 @@ dayData = {
   is_del
 }
 
+// 计划表
+plan = {
+  pid: number,              // 计划表id 主键 自增
+  uid: number,              // 用户uid NotNull
+  bloodPressure: string,    // 血压
+  bmi: string,              // 体脂率
+  weight: string,           // 体重
+  heartRate: string,        // 心率
+  calorie: string,          // 卡路里
+  kilometre: string,        // 公里数
+  is_del
+}
+
 // 文章表
 article = {
   aid: number,            // 文章id 主键            
@@ -81,6 +95,7 @@ article = {
   title: string,          // 文章标题 
   content: string,        // 文章内容
   author: string,         // 文章作者 默认:佚名
+  like: number,           // 文章点赞数      
   is_del,
 }
 ```
