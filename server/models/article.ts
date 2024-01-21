@@ -21,7 +21,7 @@ Article.init({
     comment: "文章标题"
   },
   content: {
-    type: DataTypes.STRING,
+    type: DataTypes.TEXT,
     allowNull: true,
     comment: "文章内容"
   },
@@ -30,6 +30,12 @@ Article.init({
     allowNull: false,
     defaultValue: "佚名",
     comment: "文章作者"
+  },
+  image: {
+    type: DataTypes.STRING,
+    allowNull: false,
+    defaultValue: "1.jpg",
+    comment: "文章封面",
   },
   is_del: {
     type: DataTypes.INTEGER.UNSIGNED,

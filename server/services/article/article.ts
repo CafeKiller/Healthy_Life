@@ -20,6 +20,13 @@ export const getArticleInfoListByTitleService = (title: string) => {
 }
 
 /**
+ * 查询所有文章
+ * */
+export const getArticleList = () => {
+  return Article.findAll({where: {is_del: 0}})
+}
+
+/**
  * 通过 author 查询该作者的所有文章
  * @param author {string} 文章作者
  * @return 文章集合信息
