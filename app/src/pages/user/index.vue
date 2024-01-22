@@ -1,7 +1,7 @@
 <template>
     <view class="content">
         <view class="header">
-            <view class="user-cover">
+            <view class="user-cover" @tap='userCoverHandle'>
                 <image src="/static/user_def.png"></image>
             </view>
             <view class="user-info">
@@ -11,7 +11,7 @@
             </view>
         </view>
         <view class="wrap">
-            <view class="other-info">
+            <view class="other-info" @tap.stop="userDataHandle">
                 <view class="other-info-item">
                     <view class="title">体重</view>
                     <view class="iconfont icon-icon"></view>
@@ -50,7 +50,7 @@
                 关于我们
                 <view class="iconfont icon-qianjin"></view>
             </view>
-            <view class="option-item">
+            <view class="option-item" @tap.stop='logout'>
                 <view class="iconfont icon-chexiao"></view>
                 退出账号
                 <view class="iconfont icon-qianjin"></view>
@@ -61,25 +61,64 @@
 
 <script>
 
-import {mapState} from "vuex";
+import { mapMutations, mapState } from 'vuex'
 
 export default {
     data() {
         return {
-            // user_info: null
+
         }
     },
     computed: {
         ...mapState(['user']),
     },
     onLoad() {
-        if (!this.user) {
-            console.error("用户未登录, 跳转至登录页面")
+        if (!this.user.uid) {
+            console.warn("[user state warning] 用户未登录, 跳转至登录页面")
             uni.navigateTo({ url:"./login" })
         }
     },
-    methods: {
+    onShow(options) {
 
+    },
+    methods: {
+        ...mapMutations(["setUser"]),
+        /**
+         * 用户退出处理函数, 退出的同时需要将本地缓存的登录态也一并清除
+         * */
+        logout(){
+            uni.showModal({
+                title:"是否退出当前账户",
+                success: (res)=>{
+                    if(res.confirm) {
+                        this.setUser({})
+                        uni.setStorageSync("user_data", {})
+                    }
+                }
+            })
+        },
+        /**
+         * 用户头像处理, 如果检查到用户未登录就跳转到登录页面
+         * 如果检查到用户已经登录, 则拉起 用户头像上传弹窗
+         * */
+        userCoverHandle(){
+            if(!this.user.uid) {
+                uni.navigateTo({ url:"./login" })
+                return
+            }
+            // TODO 用户登录后 点击头像 上传头像
+        },
+        /**
+         * 用户展示数据处理函数, 同样需要先检查用户是否登录,
+         * 如果用户登录了就拉起用户数据修改弹窗
+         * */
+        userDataHandle(){
+            if(!this.user.uid) {
+                uni.navigateTo({ url:"./login" })
+                return
+            }
+            // TODO 用户登录后 点击数据卡 修改数据
+        }
     }
 }
 </script>

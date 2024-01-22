@@ -41,9 +41,7 @@ export default {
         return {
             title: '文章页面',
             img_url_prefix: "http://localhost:9999/project/HL/static/",
-            articleList: [
-
-            ]
+            articleList: null
         }
     },
     computed: {
@@ -59,7 +57,6 @@ export default {
                 console.log(res)
                 if(res.data.data) {
                     this.articleList = res.data.data.result
-                    console.log("articleList",this.articleList)
                 }
             }
         })

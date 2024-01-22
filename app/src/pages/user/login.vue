@@ -18,6 +18,7 @@
 
 <script>
 import { mapActions, mapGetters, mapState } from "vuex";
+import { log } from '@dcloudio/vue-cli-plugin-uni/lib/format-log'
 
 export default {
 
@@ -43,6 +44,7 @@ export default {
             if (!this.loginAccount) return
             if (!this.loginPassword) return
             await this.userLogin({_account: this.loginAccount, _password: this.loginPassword})
+            if (this.user.uid) uni.switchTab({url:"/pages/user/index"})
         },
         goRegisterPage: function () {
             uni.navigateTo({url: "./register"})
