@@ -1,5 +1,31 @@
 # 项目结构说明
 
+```
+Healthy_Lift
+    ├─ app                      前端小程序
+        ├─ public                       公共资源
+        ├─ src                          前端程序源码
+        ├─ package.json                 项目配置文件
+        └─ README                       前端程序说明文档    
+    ├─ server                   后端服务
+        ├─ config                       服务配置
+        ├─ controller                   服务控制器
+        ├─ log                          服务日志
+        ├─ middleware                   服务中间件
+        ├─ models                       数据库映射模型  
+        ├─ router                       服务路由
+        ├─ services                     服务处理器
+        ├─ utils                        公共工具类
+        ├─ app.ts                       服务入口函数
+        ├─ package.json                 项目配置文件
+        ├─ tsconfig.json                TS配置文件
+        └─ README                       后端服务说明文档          
+    ├─ project                  静态资源文件夹
+    ├─ db_left.sql              MySQL测试数据脚本
+    ├─ ProjectDescription.md    项目需求说明文档  
+    └─ README                   项目综合说明文档
+```
+
 ## Server
 
 后端服务, 核心技术选择: Koa2 + TypeScript
@@ -81,6 +107,6 @@ http {
 ```
 
 ## MySQL
-注意: 此为可选项。可以让后端服务的sequelize自动生成后再运行db_life.sql, 添加测试数据.
+注意: 此为可选项。可以让后端服务的sequelize自动生成后再运行db_life.sql, 添加测试数据.  
 也可以自行创建db_life库, 在运行db_life.sql, 添加测试数据.
 
