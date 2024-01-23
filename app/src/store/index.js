@@ -1,19 +1,26 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import {log} from "@dcloudio/vue-cli-plugin-uni/lib/format-log";
 
 Vue.use(Vuex);
 
 const store = new Vuex.Store({
     state:{
-        user: { }
+        user: { },
+        articles: [],
     },
     mutations: {
         setUser: (state, newVal)=> {
             state.user = newVal
-        }
+        },
+        setArticles: (state, newVal) => {
+            state.articles = newVal
+        },
     },
     actions: {
+        /**
+         * 用户登录处理函数, 登录成功后将登录态保存到状态中心,
+         * 并将登录态保持到缓存中
+         * */
         userLogin: (context, newVal) => {
             uni.request({
                 url: '/api/user/login',
@@ -35,11 +42,28 @@ const store = new Vuex.Store({
                     }
                 }
             })
+        },
+        /**
+         * 获取全部文章集合函数
+         * */
+        requestArticleList: (content) => {
+            uni.request({
+                url: "/api/article/all",
+                method: "GET",
+                success: (res) => {
+                    if(res.data.data) {
+                        content.commit("setArticles", res.data.data.result)
+                    }
+                }
+            })
         }
     },
     getters: {
         getUser: (state)=> {
             return state.user
+        },
+        getArticle: ( ) =>{
+
         }
     }
 })

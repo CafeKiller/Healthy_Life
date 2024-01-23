@@ -7,20 +7,23 @@
             </view>
         </view>
         <view class="tips-cont">
-            <div class="tips-item">
+            <view v-show='isShow' class="tips-item">
                 <view class="title">专业咨询</view>
                 <view class="iconfont icon-baike"></view>
-            </div>
-            <div class="tips-item">
+            </view>
+            <view v-show='isShow' class="tips-item">
                 <view class="title">智能建议</view>
                 <view class="iconfont icon-rengongzhinengdanao"></view>
+            </view>
+            <div v-show='!isShow' class='tips-item return' @tap.stop='showAllArticles'>
+                显示全部文章
             </div>
         </view>
         <view class="article-list">
             <view v-for="(item, index) in articleList" :key="item.aid">
                 <view class="article-item">
                     <view class="article-image">
-                        <img :src="img_url_prefix + item.image" alt="">
+                        <img :src="img_url_prefix + item.image" :alt="'图片_'+item.title">
                     </view>
                     <view class="article-title">{{item.title}}</view>
                     <view class="article-cont">
@@ -30,51 +33,76 @@
                     </view>
                 </view>
             </view>
-
         </view>
     </view>
 </template>
 
 <script>
+import { mapMutations, mapState } from 'vuex'
+import { article } from '@dcloudio/vue-cli-plugin-uni/packages/postcss/tags'
 export default {
     data() {
         return {
-            title: '文章页面',
+            isShow: true,
             img_url_prefix: "http://localhost:9999/project/HL/static/",
             articleList: [],
             inputKey : "请输入相关文章关键字",
         }
     },
     computed: {
+        ...mapState(['articles'])
     },
     onLoad() {
-        // 页面加载时 同时加载新闻列表
         uni.request({
             url: "/api/article/all",
             method: "GET",
             success: (res) => {
                 if(res.data.data) {
                     this.articleList = res.data.data.result
+                    this.setArticles(res.data.data.result)
                 }
             }
         })
     },
     methods: {
+        ...mapMutations(["setArticles"]),
         // HACK 处理 uniApp 数据双向绑定BUG
         onInputKey(event){
             this.inputKey = event.detail.value
         },
         /**
-         * 搜索文章函数, 需要先检查用户输入的关键字是否合法
+         * 搜索文章函数, 需要先检查用户输入的关键字是否合法,
+         * 搜索成功, 会将页面当前展示的文章替换掉, 搜索失败时则返回错误信息
          * */
         searchArticle(){
             if (!this.detectionInputKey(String(this.inputKey))) {
-                uni.showModal({
-                    title: "警告",
-                    content: "请输入合法的关键字",
-                    showCancel: false
+                uni.showToast({
+                    title:"抱歉, 请输入合法的关键字",
+                    icon:"error"
                 })
+                return
             }
+            uni.request({
+                url: `/api/article/title/${this.inputKey}`,
+                method: "GET",
+                success: (res) => {
+                    if (res.data.data.result.length) {
+                        uni.showToast({
+                            title:"检索成功",
+                            icon:"success"
+                        })
+                        this.articleList = res.data.data.result
+                        this.isShow = !this.isShow
+                    } else {
+                        uni.showToast({
+                            title:" 失败, 无相关文章 ",
+                            icon:"error"
+                        })
+                    }
+
+                }
+            })
+
         },
         /**
          * 检查用户输入的文章关键字是否合法
@@ -83,9 +111,18 @@ export default {
          * @return {boolean} 返回检查合法性
          * */
         detectionInputKey(key){
-            if (key) return false
+            if (!key) return false
             if (/^\d+$/.test(key)) return false
             return true
+        },
+        /**
+         * 展示所有文章函数
+         * */
+        showAllArticles(){
+            if(this.articles) {
+                this.isShow = !this.isShow
+                this.articleList = this.articles
+            }
         }
     }
 }

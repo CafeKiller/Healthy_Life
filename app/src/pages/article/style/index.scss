@@ -31,7 +31,6 @@
   padding: 0 10upx;
   margin: 30upx auto 30upx;
   width: 100%;
-  height: 200upx;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -39,7 +38,7 @@
     position: relative;
     width: 340upx;
     height: 200upx;
-    border-radius: 20upx;
+    border-radius: 10upx;
     background-color: var(--sub-color-1);
     box-shadow: 2upx 2upx 10upx rgba(0,0,0,.3);
     overflow: hidden;
@@ -64,6 +63,17 @@
       right: -30upx;
       bottom: -30upx;
       font-size: 240upx;
+    }
+    &.return {
+      width: 700upx;
+      height: 100upx;
+      text-align: center;
+      line-height: 100upx;
+      font-weight: 800;
+      font-size: 36upx;
+      letter-spacing: 8upx;
+      text-indent: 8upx;
+      color: #ffffff;
     }
   }
 }
