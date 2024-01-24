@@ -4,9 +4,6 @@ import { mapMutations} from "vuex";
 export default {
     data() {
         return {
-            user: {
-                name: "11111"
-            }
         }
     },
     methods: {

@@ -8,7 +8,7 @@
 					</view>
 					<view class="left">
 						<view class="current-weight">123.<span class="small">0</span></view>
-						<view class="current-time">1月7日 19:56</view>
+						<view class="current-time">{{currentData}}</view>
 					</view>
 					<view class="center">
 						<view class="compare-weight">0.5 <span class="iconfont down icon-xiangshangjiantoucuxiao"></span> </view>
@@ -68,29 +68,34 @@
 </template>
 
 <script>
+	import dayjs from 'dayjs'
+
 	export default {
 		data() {
 			return {
-				title: 'Hello'
+				title: 'Hello',
+				currentData: "1月7日 19:56",
 			}
 		},
 		onLoad() {
-			/*uni.request({
-				url: 'https://www.example.com/request',
-				data: {
-					text: 'uni.request'
-				},
-				header: {
-					'custom-header': 'hello'
-				},
-				success: (res) => {
-					console.log(res.data);
-					this.text = 'request success';
-				}
-			});*/
+			this.currentData = dayjs().format("MM月DD日 HH:mm")
+			this.updateCurrentData()
 		},
 		methods: {
+			/**
+			 * 拉起每日记录更新弹窗
+			 * */
+			popUpdateDayDataDialog(){
 
+			},
+			/**
+			 * 更新当前时间函数
+			 * */
+			updateCurrentData(){
+				setInterval(()=>{
+					this.currentData = dayjs().format("MM月DD日 HH:mm")
+				}, 60000)
+			}
 		}
 	}
 </script>

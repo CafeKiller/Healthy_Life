@@ -6,3 +6,4 @@ node_modules
 */.vscode
 */.idea
 /server/log/logs/
+/app/src/static/temp/
