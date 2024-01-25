@@ -3,7 +3,7 @@
 		<!--	今日体重相关提示模块	-->
 		<view class="current-tips-box">
 				<view class="top-cont">
-					<view class="update-btn">
+					<view class="update-btn" @tap='popUpdateDayDataDialog()'>
 						<span class="iconfont icon-gengxin"></span>
 					</view>
 					<view class="left">
@@ -58,24 +58,35 @@
 				<view class="iconfont icon-yundong-"></view>
 			</view>
 		</view>
-
 		<!--	睡眠质量模块  -->
 		<view class="current-sheep-cont">
 			<view class="title">今日睡眠质量</view>
 
 		</view>
+
+		<!--	弹窗部分	-->
+		<DialogDayData
+			v-if='isShowCommonDialog'
+			:isShowCommonDialog='isShowCommonDialog'
+			@UpdateDialogDayDataState='UpdateDialogDayDataState'
+		>
+		</DialogDayData>
 	</view>
 </template>
 
 <script>
 	import dayjs from 'dayjs'
+	import DialogDayData from '@/components/dialog/dialogDayData.vue'
 
 	export default {
 		data() {
 			return {
-				title: 'Hello',
+				isShowCommonDialog: false,
 				currentData: "1月7日 19:56",
 			}
+		},
+		components:{
+			DialogDayData
 		},
 		onLoad() {
 			this.currentData = dayjs().format("MM月DD日 HH:mm")
@@ -86,7 +97,7 @@
 			 * 拉起每日记录更新弹窗
 			 * */
 			popUpdateDayDataDialog(){
-
+				this.UpdateDialogDayDataState(true)
 			},
 			/**
 			 * 更新当前时间函数
@@ -95,7 +106,13 @@
 				setInterval(()=>{
 					this.currentData = dayjs().format("MM月DD日 HH:mm")
 				}, 60000)
-			}
+			},
+			/**
+			 * 通过传入的值, 来关闭和显示弹窗
+			 * */
+			UpdateDialogDayDataState(data){
+				this.isShowCommonDialog = data
+			},
 		}
 	}
 </script>
