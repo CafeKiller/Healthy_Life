@@ -25,12 +25,12 @@
 
 .dialog-day-data {
   width: 680upx;
-  height: 600upx;
+  height: 780upx;
   background-color: #fff;
   border-radius: 10upx;
   box-shadow: 4upx 4upx 4upx 10upx rgba(0,0,0,.3);
   .title {
-    margin-top: 30upx;
+    margin-top: 20upx;
     font-weight: 800;
     font-size: 40upx;
     letter-spacing: 4upx;
@@ -38,32 +38,78 @@
     color: var(--main-color);
     text-align: center;
   }
-  .data-list {
-    margin: 10upx auto 0;
+  .header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    width: 100%;
+    height: 75upx;
+    font-weight: 800;
+    line-height: 75upx;
+    border-bottom: 2upx solid var(--main-color);
+    z-index: 10;
+    .col {
+      width: 400upx;
+      font-size: 34upx;
+      text-align: center;
+      letter-spacing: 12upx;
+      text-indent: 12upx;
+      color: var(--main-color);
+      &.right {
+        width: 200upx;
+        color: var(--reve-color);
+      }
+    }
+  }
+  .data-cont {
+    padding-top: 75upx;
+    position: relative;
+    margin: 20upx auto 0;
     width: 600upx;
-    height: 460upx;
+    height: 480upx;
     border: 1px solid var(--main-color);
-    overflow-y: scroll;
-    .data-item {
-      display: flex;
-      width: 100%;
-      height: 90upx;
-      line-height: 90upx;
-      .col {
-        width: 50%;
-        font-weight: 800;
-        font-size: 38upx;
-        text-align: center;
-        letter-spacing: 12upx;
-        text-indent: 12upx;
-        color: var(--main-color);
-        &.right {
-          color: var(--reve-color);
+    .data-list {
+      overflow-y: scroll;
+      width: 600upx;
+      height: 405upx;
+      .data-item {
+        display: flex;
+        width: 100%;
+        height: 90upx;
+        border-bottom: 2upx solid var(--main-color);
+        .col {
+          height: 90upx;
+          font-size: 38upx;
+          line-height: 90upx;
+          text-align: center;
+          letter-spacing: 12upx;
+          text-indent: 12upx;
+          color: var(--main-color);
+          &.left {
+            width: 400upx;
+            font-size: 32upx;
+            letter-spacing: 2upx;
+            text-indent: 2upx;
+          }
+          &.right {
+            width: 200upx;
+            border-left: 2upx solid var(--main-color);
+            color: var(--reve-color);
+          }
         }
       }
-      &.header {
-        height: 75upx;
-        line-height: 75upx;
+    }
+  }
+  .tips-list {
+    margin-top: 16upx;
+    width: 600upx;
+    .tips {
+      font-size: 28upx;
+      color: #888;
+      &.color {
+        opacity: .8;
+        color: var(--reve-color);
       }
     }
   }
