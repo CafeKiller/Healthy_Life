@@ -25,7 +25,7 @@
 
 .dialog-day-data {
   width: 680upx;
-  height: 780upx;
+  height: 880upx;
   background-color: #fff;
   border-radius: 10upx;
   box-shadow: 4upx 4upx 4upx 10upx rgba(0,0,0,.3);
@@ -99,6 +99,19 @@
           }
         }
       }
+    }
+    .update-btn {
+      margin: 10px auto 0;
+      width: 300upx;
+      height: 80upx;
+      letter-spacing: 6upx;
+      text-indent: 6upx;
+      font-weight: 800;
+      line-height: 80upx;
+      text-align: center;
+      border-radius: 6upx;
+      color: #ffffff;
+      background-color: var(--reve-color);
     }
   }
   .tips-list {
