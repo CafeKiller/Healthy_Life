@@ -7,7 +7,7 @@
   align-items: center;
   width: 100vw;
   height: 100vh;
-  z-index: 1000;
+  z-index: 100;
   background: rgba(0,0,0,.7);
   .content {
     position: relative;
@@ -118,7 +118,7 @@
     margin-top: 16upx;
     width: 600upx;
     .tips {
-      font-size: 28upx;
+      font-size: 26upx;
       color: #888;
       &.color {
         opacity: .8;

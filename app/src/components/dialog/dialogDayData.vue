@@ -13,15 +13,15 @@
             <div class='col right'></div>
           </div>
           <div class='data-item'>
-            <input class='col left' type='input' v-model='day_data.calorie' placeholder='今日卡路里摄入'></input>
+            <input class='col left' type='number'  v-model='day_data.calorie' placeholder='今日卡路里摄入'></input>
             <div class='col right'></div>
           </div>
           <div class='data-item'>
-            <input class='col left' placeholder='今日运动步数' v-model='day_data.step_num'></input>
+            <input class='col left' type='number' placeholder='今日运动步数' v-model='day_data.step_num'></input>
             <div class='col right'></div>
           </div>
           <div class='data-item'>
-            <input class='col left' placeholder='今日有氧运动分钟' v-model='day_data.exercise_time'></input>
+            <input class='col left' type='number' placeholder='今日有氧运动分钟' v-model='day_data.exercise_time'></input>
             <div class='col right'></div>
           </div>
           <div class='data-item'>
@@ -32,6 +32,7 @@
         <div class='update-btn' @tap.stop='updateDayDate'>UPDATE</div>
         <div class='tips-list'>
           <div class='tips'>* 规划数据只作展示, 不可以在当前页面进行修改</div>
+          <div class='tips'>* 睡眠时间请输入 XX:XX 的格式</div>
           <div class='tips color'>* 数据直接输入数值即可, 可以不用输入单位</div>
           <div class='tips color'>* 食物可以直接输入食物名, 会自动转换为卡路里量</div>
         </div>
@@ -42,24 +43,30 @@
 </template>
 
 <script>
+import { mapMutations, mapState } from 'vuex'
+
 export default {
   name:"DialogDayData",
   props:["isShowCommonDialog"],
   data() {
     return {
       day_data:{
-        calorie: "",
-        sleep_time: "",
-        step_num: "",
-        exercise_time: "",
-        foods:"",
+        calorie: null,
+        sleep_time: null,
+        step_num: null,
+        exercise_time: null,
+        foods: null,
       }
     }
+  },
+  computed:{
+    ...mapState(["user"])
   },
   created(){
 
   },
   methods:{
+    ...mapMutations(["setCurrentData"]),
     /**
      * 关闭每日数据弹窗组件显示
      * */
@@ -67,13 +74,46 @@ export default {
       this.$emit("UpdateDialogDayDataState", !this.isShowCommonDialog)
     },
     updateDayDate(){
+      if (this.inspectDayData()) {
+        this.disposeDayData()
+        uni.request({
+          method:"GET",
+          url:`/api/data/add?uid=${this.user.uid}&calorie=${this.day_data.calorie}&sleepTime=${this.day_data.sleep_time}&stepNum=${this.day_data.step_num}&exerciseTime=${this.day_data.exercise_time}`,
+          header:{
+            "token": this.user.token
+          },
+          success:(res)=>{
+            if(res.data.data) {
+              this.setCurrentData(res.data.data)
+            }
+          }
+        })
+      }
 
+    },
+    /**
+     * 校验需要上传的每日数据格式的合法性
+     * */
+    inspectDayData(){
+      if (!/^((1|0?)[0-9]|2[0-3]):([0-5][0-9])/.test(this.day_data.sleep_time)) {
+        uni.showToast({
+          title:"请输入合法的睡眠时间格式",
+          icon:"error"
+        })
+        return false
+      }
+      return true
     },
     /**
      * 处理需要上传的每日数据格式
      * */
     disposeDayData(){
-
+      if (!this.day_data.calorie) {
+        this.day_data.calorie = 0
+      }
+      if (!this.day_data.step_num) {
+        this.day_data.step_num = 0
+      }
     }
   },
 }

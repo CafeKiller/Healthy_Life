@@ -7,6 +7,7 @@ const store = new Vuex.Store({
     state:{
         user: { },
         articles: [],
+        currentData:{},
     },
     mutations: {
         setUser: (state, newVal)=> {
@@ -15,6 +16,9 @@ const store = new Vuex.Store({
         setArticles: (state, newVal) => {
             state.articles = newVal
         },
+        setCurrentData:(state, newVal)=>{
+            state.currentData = newVal
+        }
     },
     actions: {
         /**
