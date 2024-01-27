@@ -8,6 +8,7 @@ type healthParams = {
   exerciseTime?: string,
   foods?: string,
   stepNum?: string,
+  weight?:string,
 }
 
 /**
