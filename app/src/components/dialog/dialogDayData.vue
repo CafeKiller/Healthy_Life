@@ -60,10 +60,16 @@ export default {
     }
   },
   computed:{
-    ...mapState(["user"])
+    ...mapState(["user","currentData"])
   },
   created(){
-
+    if (this.currentData.did) {
+      this.day_data.calorie = this.currentData.calorie
+      this.day_data.step_num = this.currentData.stepNum
+      this.day_data.sleep_time = this.currentData.sleepTime
+      this.day_data.exercise_time = this.currentData.exerciseTime
+      this.day_data.foods = this.currentData.foods
+    }
   },
   methods:{
     ...mapMutations(["setCurrentData"]),
@@ -85,6 +91,10 @@ export default {
           success:(res)=>{
             if(res.data.data) {
               this.setCurrentData(res.data.data)
+              uni.showToast({
+                title: "数据上传成功",
+                icon: "success"
+              })
             }
           }
         })

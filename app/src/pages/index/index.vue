@@ -8,7 +8,7 @@
 					</view>
 					<view class="left">
 						<view class="current-weight">123.<span class="small">0</span></view>
-						<view class="current-time">{{currentData}}</view>
+						<view class="current-time">{{currentTime}}</view>
 					</view>
 					<view class="center">
 						<view class="compare-weight">0.5 <span class="iconfont down icon-xiangshangjiantoucuxiao"></span> </view>
@@ -77,22 +77,43 @@
 <script>
 	import dayjs from 'dayjs'
 	import DialogDayData from '@/components/dialog/dialogDayData.vue'
+	import { mapMutations, mapState } from 'vuex'
 
 	export default {
 		data() {
 			return {
 				isShowCommonDialog: false,
-				currentData: "1月7日 19:56",
+				currentTime: "1月7日 19:56",
 			}
+		},
+		computed:{
+			...mapState(['user',"currentData"])
 		},
 		components:{
 			DialogDayData
 		},
 		onLoad() {
-			this.currentData = dayjs().format("MM月DD日 HH:mm")
+			// 进入页面后检查当前是否拥有当日数据, 没有则拉取后端数据
+			if (JSON.stringify(this.currentData) === "{}" && this.user.uid) {
+				uni.request({
+					url: `/api/data/find?uid=${this.user.uid}`,
+					method: "GET",
+					header:{
+						"token": this.user.token
+					},
+					success: (res) => {
+						if (res.data.data) {
+							this.setCurrentData(res.data.data)
+							console.log("成功拉取到用户当日数据 =>", res)
+						}
+					}
+				})
+			}
+			this.currentTime = dayjs().format("MM月DD日 HH:mm")
 			this.updateCurrentData()
 		},
 		methods: {
+			...mapMutations(["setCurrentData"]),
 			/**
 			 * 拉起每日记录更新弹窗
 			 * */

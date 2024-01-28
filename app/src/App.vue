@@ -1,10 +1,13 @@
 <script>
-import { mapMutations} from "vuex";
+import { mapMutations, mapState } from 'vuex'
 
 export default {
     data() {
         return {
         }
+    },
+    computed:{
+
     },
     methods: {
       ...mapMutations(["setUser"])
