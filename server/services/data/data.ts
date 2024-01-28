@@ -55,7 +55,7 @@ export const createDayDataService = (uid: number, params: healthParams) => {
  * @param params {updateParams} 健康参数
  * @return 数据库修改信息
  * */
-export const updateDayDataService = (did: number, params: healthParams) => {
+export const updateDayDataService = (did: string | string[], params: healthParams) => {
   return DayData.update(params, {where: {did: did, is_del: 0}})
 }
 
