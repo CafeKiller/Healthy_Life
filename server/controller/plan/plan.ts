@@ -8,13 +8,14 @@ import { addPlanDataByUid, getPlanDataByUid, updatePlanDataByUid } from '../../s
  * */
 export const getPlanDataApi = async (ctx: Context, next: Next) => {
 
-    let { uid }  = ctx.request.body
+    let { uid }  = ctx.request.query
     if (!uid) throw CODE.needMissingParameters
+    if (isNaN(Number(uid))) throw CODE.errorTypeParameters
 
-    let resultUser = await getUserInfosService(uid)
+    let resultUser = await getUserInfosService(Number(uid))
     if (!resultUser) throw CODE.userNotExist
 
-    let result = await getPlanDataByUid(uid)
+    let result = await getPlanDataByUid(Number(uid))
 
     ctx.body = result?.dataValues
     return next()
