@@ -16,6 +16,11 @@ DayData.init({
     defaultValue: 0,
     comment: "数据关联用户id"
   },
+  weight:{
+    type: DataTypes.STRING,
+    allowNull: true,
+    comment:"当日数据 体重"
+  },
   calorie: {
     type: DataTypes.INTEGER,
     allowNull: true,

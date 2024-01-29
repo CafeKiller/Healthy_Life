@@ -6,7 +6,9 @@ type updatePlanDataType = {
     weight?: string,
     heartRate?: string,
     calorie?: string,
-    kilometre?: string
+    kilometre?: string,
+    exerciseTime?:string,
+    sleepTime?:string,
 }
 
 /**
@@ -15,6 +17,10 @@ type updatePlanDataType = {
  * */
 export const getPlanDataByUid = (uid: number) => {
     return Plan.findOne({where: {uid: uid, is_del: "0" }})
+}
+
+export const addPlanDataByUid = (uid:number, params: updatePlanDataType) => {
+    return Plan.create({uid: uid, ...params})
 }
 
 /**

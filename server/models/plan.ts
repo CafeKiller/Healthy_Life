@@ -41,10 +41,20 @@ Plan.init({
         allowNull: true,
         comment: "目标计划 卡路里"
     },
+    sleepTime:{
+        type:DataTypes.STRING,
+        allowNull: true,
+        comment: "目标计划 睡眠时间"
+    },
+    exerciseTime: {
+        type: DataTypes.STRING,
+        allowNull: true,
+        comment: "目标计划 锻炼时间"
+    },
     kilometre: {
         type: DataTypes.STRING,
         allowNull: true,
-        comment: "目标计划 公里"
+        comment: "目标计划 步数"
     },
     is_del: {
         type: DataTypes.INTEGER.UNSIGNED,

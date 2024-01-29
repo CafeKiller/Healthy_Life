@@ -27,5 +27,8 @@ export const CODE = {
   userNotExist: {code: 50005, message: "用户不存在", key: "userNotExist"},
   userIdError: {code: 50006, message: "UID 错误", key: "userIdError"},
   /* -------------------------  Article ------------------------- */
-  articleNotExist: {code: 51000, message: "文章不存在", key: "articleNotExist"}
+  articleNotExist: {code: 51000, message: "文章不存在", key: "articleNotExist"},
+  /* -------------------------  Plan ------------------------- */
+  planAddError: {code:52000, message:"健康计划添加失败", key:"planAddError"},
+  planUpdateError: {code:52001, message:"健康计划更新失败", key:"planUpdateError"},
 }
