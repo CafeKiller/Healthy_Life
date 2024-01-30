@@ -10,23 +10,23 @@
         <div class='data-list'>
           <div class='data-item'>
             <input class='col left' placeholder='今日体重' ></input>
-            <div class='col right'></div>
+            <div class='col right'>60KG</div>
           </div>
           <div class='data-item'>
             <input class='col left' type='number'  v-model='day_data.calorie' placeholder='今日卡路里摄入'></input>
-            <div class='col right'></div>
+            <div class='col right'>2000卡</div>
           </div>
           <div class='data-item'>
             <input class='col left' type='number' placeholder='今日运动步数' v-model='day_data.step_num'></input>
-            <div class='col right'></div>
+            <div class='col right'>10000步</div>
           </div>
           <div class='data-item'>
             <input class='col left' type='number' placeholder='今日有氧运动分钟' v-model='day_data.exercise_time'></input>
-            <div class='col right'></div>
+            <div class='col right'>40min</div>
           </div>
           <div class='data-item'>
             <input class='col left' placeholder='今日睡眠时长' v-model='day_data.sleep_time'></input>
-            <div class='col right'></div>
+            <div class='col right'>7:40</div>
           </div>
         </div>
         <div class='update-btn' @tap.stop='updateDayDate'>UPDATE</div>

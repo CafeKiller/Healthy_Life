@@ -60,6 +60,13 @@
                 </view>
             </div>
         </view>
+        <!-- 健康报告 -->
+        <div class='dialog' v-if='true'>
+            <view class='report'>
+                <img class='img1' src='@/static/img_1.png' alt=''>
+                <img class='img2' src='@/static/img_2.png' alt=''>
+            </view>
+        </div>
     </view>
 </template>
 

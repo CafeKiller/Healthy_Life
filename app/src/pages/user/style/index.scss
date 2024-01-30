@@ -114,4 +114,53 @@
   }
 }
 
+.anno-list {
+  margin: 0 auto;
+  width: 730upx;
+  .anno-item {
+    position: relative;
+    width: 100%;
+    padding: 20upx;
+    border-bottom: 2upx solid var(--main-color);
+    margin-bottom: 30upx;
+    .title {
+      position: relative;
+      text-indent: 30upx;
+      margin-bottom: 20upx;
+      font-size: 40upx;
+      .icon {
+        position: absolute;
+        margin-top: -10upx;
+        top: 50%;
+        left: 0;
+        width: 20upx;
+        height: 20upx;
+        border-radius: 10upx;
+        background-color: var(--main-color);
+        &.red {
+          background-color: red;
+        }
+      }
+      .iconfont {
+        font-size: 50upx;
+        line-height: 40upx;
+        color: var(--main-color);
+      }
+    }
+    .text {
+      padding-left: 20upx;
+      font-size: 30upx;
+      line-height: 50upx;
+      color: #333;
+    }
+    .bottom {
+      margin: 20upx auto 10upx;
+      display: flex;
+      justify-content: space-between;
+      width: 95%;
+      color: #999;
+    }
+
+  }
+}
 

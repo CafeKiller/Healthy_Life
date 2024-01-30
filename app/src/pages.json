@@ -13,9 +13,21 @@
 			}
 		},
 		{
+			"path": "pages/article/content",
+			"style": {
+				"navigationBarTitleText": "健康文章"
+			}
+		},
+		{
 			"path": "pages/life/index",
 			"style": {
 				"navigationBarTitleText": "生活空间"
+			}
+		},
+		{
+			"path": "pages/life/report",
+			"style": {
+				"navigationBarTitleText": "健康报告"
 			}
 		},
 		{
@@ -34,6 +46,12 @@
 			"path": "pages/user/register",
 			"style": {
 				"navigationBarTitleText": "注册"
+			}
+		},
+		{
+			"path": "pages/user/announcement",
+			"style": {
+				"navigationBarTitleText": "官方公告"
 			}
 		}
 	],

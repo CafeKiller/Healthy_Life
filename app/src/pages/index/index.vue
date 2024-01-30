@@ -61,7 +61,7 @@
 		<!--	睡眠质量模块  -->
 		<view class="current-sheep-cont">
 			<view class="title">今日睡眠质量</view>
-
+			<img src='@/static/img.png' alt=''>
 		</view>
 
 		<!--	弹窗部分	-->

@@ -141,3 +141,55 @@
     }
   }
 }
+.dialog {
+  position: absolute;
+  bottom: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,.7);
+}
+.report {
+  padding: 30upx 0;
+  position: absolute;
+  bottom: 0;
+  width: 750upx;
+  height: 1240upx;
+  border-top-right-radius: 20upx;
+  border-top-left-radius: 20upx;
+  background-color: #fff;
+  .img1 {
+    width: 720upx;
+  }
+  .img2 {
+    width: 720upx;
+  }
+  .top-left {
+    position: relative;
+    width: 460upx;
+    height: 260upx;
+    border: 10upx solid var(--main-color);
+    border-radius: 10upx;
+    .subtitle {
+      position: absolute;
+      top: 20upx;
+      right: 90upx;
+      font-weight: 800;
+      color: var(--main-color);
+    }
+    .mark {
+      position: absolute;
+      top: 70upx;
+      right: 70upx;
+      font-weight: 800;
+      font-size: 120upx;
+      color: var(--reve-color);
+      text-shadow: 3px 3px rgba(255, 106, 0,.3);
+    }
+    .iconfont {
+      font-size: 240upx;
+      line-height: 240upx;
+      color: var(--main-color);
+    }
+  }
+
+}
