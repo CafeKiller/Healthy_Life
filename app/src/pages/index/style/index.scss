@@ -1,216 +1,269 @@
 .content {
     background-color: #f7f8fa;
-}
-.current-tips-box {
-     position: relative;
-     margin: 0 auto 0;
-     width: 100%;
-     height: 200px;
-     border-radius: 0 0 15px 15px;
-     display: flex;
-     background: var(--sub-color-1);
- }
-.top-cont {
-    position: relative;
-    padding:20px 20px 0;
-    width: 100%;
-    display: flex;
-}
-.top-cont .update-btn {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    width: 40px;
-    height: 40px;
-    border-radius: 10px;
-    background-color: var(--reve-color);
-    box-shadow: 2px 2px 5px rgba(0,0,0,.2);
-    cursor: pointer;
-}
-.top-cont .update-btn .iconfont {
-    font-size: 30px;
-    color: #ffffff;
-}
-.top-cont .current-weight {
-    font-size: 64px;
-    line-height: 1;
-    color: #ffffff;
-}
-.top-cont .current-weight .small {
-    position: relative;
-    font-size: 32px;
-    font-weight: 800;
-}
-.top-cont .current-weight .small::before {
-    content: "KG";
-    position: absolute;
-    top: -16px;
-    left: -5px;
-    font-size: 18px;
-    line-height: 1;
-}
-.top-cont .current-time{
-    font-size: 32upx;
-    text-indent: 5px;
-    letter-spacing: 2px;
-    color: var(--sub-color-2);
+    .current-tips-box {
+        position: relative;
+        margin: 0 auto 0;
+        width: 750upx;
+        height: 400upx;
+        border-radius: 0 0 20upx 20upx;
+        display: flex;
+        background: var(--sub-color-1);
+        .top-cont {
+            position: relative;
+            padding: 40upx 40upx 0;
+            width: 750upx;
+            display: flex;
+            .update-btn {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                position: absolute;
+                top: 40upx;
+                right: 40upx;
+                width: 80upx;
+                height: 80upx;
+                border-radius: 20upx;
+                background-color: var(--reve-color);
+                box-shadow: 4upx 4upx 10upx rgba(0,0,0,.2);
+                cursor: pointer;
+                .iconfont {
+                    font-size: 60upx;
+                    color: #ffffff;
+                }
+            }
+            .left {
+                .current-weight {
+                    font-size: 128upx;
+                    line-height: 1;
+                    color: #ffffff;
+                    .small {
+                        position: relative;
+                        font-size: 64upx;
+                        font-weight: 800;
+                        &::before {
+                            content: "KG";
+                            position: absolute;
+                            top: -32upx;
+                            left: -10upx;
+                            font-size: 36upx;
+                            line-height: 1;
+                        }
+                    }
+                }
+                .current-time{
+                    font-size: 32upx;
+                    text-indent: 10upx;
+                    letter-spacing: 4upx;
+                    color: var(--sub-color-2);
+                }
+            }
+            .center {
+                margin-left: 80upx;
+                .compare-weight {
+                    position: relative;
+                    margin-top: 56upx;
+                    font-size: 64upx;
+                    font-weight: 800;
+                    line-height: 1;
+                    color: #ffffff;
+                    .iconfont {
+                        position: absolute;
+                        top: 10upx;
+                        left: 100upx;
+                        font-size: 48upx;
+                        animation: breath .7s ease infinite;
+                        &.down {
+                            transform: rotateZ(-180deg);
+                        }
+                    }
+                }
+                .compare-desc {
+                    font-size: 30upx;
+                    line-height: 60upx;
+                    text-indent: 10upx;
+                    letter-spacing: 4upx;
+                    color: var(--sub-color-2);
+                }
+            }
+        }
+        .bottom-cont {
+            position: absolute;
+            left: 50%;
+            bottom: 20upx;
+            display: flex;
+            justify-content: space-around;
+            width: 710upx;
+            height: 156upx;
+            border-radius: 20upx;
+            background-color: var(--main-color);
+            transform: translateX(-50%);
+            z-index: 10;
+            .bmi-cont,
+            .brf-cont {
+                width: 350upx;
+                padding-top: 20upx;
+                text-align: center;
+                .top {
+                    width: 100%;
+                    font-size: 40upx;
+                    line-height: 48upx;
+                    color: #ffffff;
+                    .top-desc {
+                        margin-left: 10upx;
+                        padding: 0 14upx;
+                        font-size: 30upx;
+                        line-height: 48upx;
+                        border-radius: 20upx;
+                        color: var(--main-color);
+                        background-color: #fff;
+
+                    }
+                }
+                .data {
+                    font-size: 48upx;
+                    line-height: 1.5;
+                    color: #ffffff;
+                }
+            }
+        }
+    }
+    .current-cal-cont {
+        margin: 20upx auto 0;
+        padding: 10upx 0;
+        width: 730upx;
+        background-color: #fff;
+        .current-cal-box {
+            position: relative;
+            margin-top: 20upx;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            height: 280upx;
+            border-radius: 20upx;
+            background-color: var(--sub-color-1);
+            .cal-left-box {
+                position: relative;
+                width: 380upx;
+                height: 240upx;
+                border-radius: 20upx;
+                background: rgba(255, 255, 255,.3);
+                font-size: 64upx;
+                line-height: 64upx;
+                text-align: center;
+                overflow: hidden;
+                .current {
+                    position: absolute;
+                    left: 30upx;
+                    top: 50upx;
+                    font-weight: 800;
+                    color: var(--reve-color);
+                }
+                .center {
+                    position: absolute;
+                    font-weight: 800;
+                    left: 50%;
+                    top: 95upx;
+                    color: #ffffff;
+                    transform: translateX(-50%) rotateZ(30deg);
+                }
+                .target {
+                    position: absolute;
+                    font-weight: 800;
+                    right: 30upx;
+                    bottom: 30upx;
+                    color: #ffffff;
+                }
+                .iconfont {
+                    position: absolute;
+                    bottom: 10upx;
+                    font-size: 160upx;
+                    color: #ffffff;
+                    opacity: .6;
+                }
+            }
+            .cal-right-box {
+                position: relative;
+                padding: 10upx;
+                width: 290upx;
+                height: 240upx;
+                border-radius: 20upx;
+                background: rgba(255, 255, 255,.5);
+                overflow: hidden;
+                .item {
+                    font-size: 32upx;
+                    line-height: 48upx;
+                    color: #ffffff;
+                    text-shadow: 2upx 2upx 10upx #666;
+                }
+                .icon-shiwu- {
+                    position: absolute;
+                    right: 6upx;
+                    bottom: -12upx;
+                    font-size: 120upx;
+                    color: #ffffff;
+                }
+            }
+        }
+    }
+    .current-movement-cont {
+        padding: 20upx 20upx;
+        width: 750upx;
+        height: 620upx;
+        background-color: #fff;
+        .current-aerobic-box,
+        .current-movement-box {
+            position: relative;
+            padding-left: 30upx;
+            margin: 30upx auto 0;
+            width: 720upx;
+            height: 240upx;
+            border-radius: 10upx;
+            background-color: var(--reve-color);
+            overflow: hidden;
+            .title {
+                padding-top: 20upx;
+                font-size: 48upx;
+                color: #ffffff;
+            }
+            .data {
+                margin-top: 60upx;
+                font-size: 22px;
+                color: #ffffff;
+            }
+            .iconfont {
+                position: absolute;
+                right: 20upx;
+                bottom: -20upx;
+                font-size: 240upx;
+                line-height: 240upx;
+                color: #ffffff;
+                opacity: .4;
+            }
+            .icon-yundong- {
+                font-size: 260upx;
+            }
+        }
+        .current-aerobic-box {
+            background-color: var(--sub-color-1);
+        }
+    }
+    .current-sheep-cont {
+        padding: 20upx 20upx;
+        width: 750upx;
+        height: 600upx;
+        background-color: #fff;
+        img {
+            width: 720upx;
+        }
+    }
 }
 
-.top-cont .center {
-    margin-left: 40px;
-}
-.compare-weight {
-    position: relative;
-    margin-top: 28px;
-    font-size: 32px;
-    font-weight: 800;
-    line-height: 1;
-    color: #ffffff;
-}
-.compare-weight .iconfont {
-    position: absolute;
-    top: 5px;
-    left: 50px;
-    font-size: 24px;
-    animation: breath .7s ease infinite;
-}
-.compare-weight .iconfont.down {
-    transform: rotateZ(-180deg);
-}
-.compare-desc {
-    font-size: 15px;
-    line-height: 30px;
-    text-indent: 5px;
-    letter-spacing: 2px;
-    color: var(--sub-color-2);
-}
 @keyframes breath {
     100%, 0% {
         top: 5px;
     }
     50% {
         top: 8px;
-    }
-}
-.bottom-cont {
-    position: absolute;
-    left: 50%;
-    bottom: 10px;
-    display: flex;
-    justify-content: space-around;
-    width: 95%;
-    height: 78px;
-    border-radius: 15px;
-    background-color: var(--main-color);
-    transform: translateX(-50%);
-    z-index: 10;
-}
-.bottom-cont > view {
-    width: 45%;
-    padding-top: 10px;
-    text-align: center;
-}
-.bottom-cont view .top {
-    width: 100%;
-    font-size: 20px;
-    line-height: 24px;
-    color: #ffffff;
-}
-.bottom-cont view .top .top-desc {
-    margin-left: 5px;
-    padding: 0 6px;
-    font-size: 16px;
-    line-height: 24px;
-    border-radius: 5px;
-    color: var(--main-color);
-    background-color: #fff;
-}
-.bottom-cont view .data {
-    font-size: 24px;
-    line-height: 1.5;
-    color: #ffffff;
-}
-
-.current-cal-cont {
-    margin: 20px auto 0;
-    padding: 10px 5px;
-    width: 100%;
-    height: 190px;
-    background-color: #fff;
-    .current-cal-box {
-        position: relative;
-        margin-top: 10px;
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
-        height: 140px;
-        border-radius: 15px;
-        background-color: var(--sub-color-1);
-        .cal-left-box {
-            position: relative;
-            width: 380upx;
-            height: 120px;
-            border-radius: 10px;
-            background: rgba(255, 255, 255,.3);
-            font-size: 64upx;
-            line-height: 64upx;
-            text-align: center;
-            overflow: hidden;
-            .current {
-                position: absolute;
-                left: 30upx;
-                top: 50upx;
-                font-weight: 800;
-                color: var(--reve-color);
-            }
-            .center {
-                position: absolute;
-                font-weight: 800;
-                left: 50%;
-                top: 95upx;
-                color: #ffffff;
-                transform: translateX(-50%) rotateZ(30deg);
-            }
-            .target {
-                position: absolute;
-                font-weight: 800;
-                right: 30upx;
-                bottom: 30upx;
-                color: #ffffff;
-            }
-            .iconfont {
-                position: absolute;
-                bottom: 10upx;
-                font-size: 160upx;
-                color: #ffffff;
-                opacity: .6;
-            }
-        }
-        .cal-right-box {
-            position: relative;
-            padding: 10upx;
-            width: 145px;
-            height: 120px;
-            border-radius: 10px;
-            background: rgba(255, 255, 255,.5);
-            overflow: hidden;
-            .item {
-                font-size: 32upx;
-                line-height: 48upx;
-                color: #ffffff;
-                text-shadow: 2upx 2upx 10upx #666;
-            }
-            .icon-shiwu- {
-                position: absolute;
-                right: 6upx;
-                bottom: -12upx;
-                font-size: 120upx;
-                color: #ffffff;
-            }
-        }
     }
 }
 .current-sheep-cont>.title,
@@ -221,58 +274,4 @@
     line-height: 20px;
     color: #333333;
     letter-spacing: 2px;
-}
-
-
-.current-movement-cont {
-    padding: 15px 10px;
-    width: 750upx;
-    height: 310px;
-    background-color: #fff;
-    .current-aerobic-box,
-    .current-movement-box {
-        position: relative;
-        padding-left: 30upx;
-        margin: 30upx auto 0;
-        width: 700upx;
-        height: 240upx;
-        border-radius: 10upx;
-        background-color: var(--reve-color);
-        overflow: hidden;
-        .title {
-            padding-top: 20upx;
-            font-size: 48upx;
-            color: #ffffff;
-        }
-        .data {
-            margin-top: 60upx;
-            font-size: 22px;
-            color: #ffffff;
-        }
-        .iconfont {
-            position: absolute;
-            right: 20upx;
-            bottom: -20upx;
-            font-size: 240upx;
-            line-height: 240upx;
-            color: #ffffff;
-            opacity: .4;
-        }
-        .icon-yundong- {
-            font-size: 260upx;
-        }
-    }
-    .current-aerobic-box {
-        background-color: var(--sub-color-1);
-    }
-}
-
-.current-sheep-cont {
-    padding: 15px 10px;
-    width: 750upx;
-    height: 300px;
-    background-color: #fff;
-}
-.current-sheep-cont img {
-    width: 720upx;
 }

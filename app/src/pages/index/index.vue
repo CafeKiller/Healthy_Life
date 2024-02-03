@@ -11,7 +11,7 @@
 						<view class="current-time">{{currentTime}}</view>
 					</view>
 					<view class="center">
-						<view class="compare-weight">0.5 <span class="iconfont down icon-xiangshangjiantoucuxiao"></span> </view>
+						<view class="compare-weight">0.5<span class="iconfont down icon-xiangshangjiantoucuxiao"></span> </view>
 						<view class="compare-desc">与昨日相比有下降</view>
 					</view>
 				</view>
