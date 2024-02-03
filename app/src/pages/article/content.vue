@@ -1,6 +1,6 @@
 <template>
   <view class="content" >
-    <iframe class='content-iframe' src='https://jiankang.cctv.com/2023/12/18/ARTI2hNZkGTXrG2ybqu1JKOF231218.shtml'></iframe>
+    <iframe class='content-iframe' :src='textUrl'></iframe>
   </view>
 </template>
 
@@ -11,11 +11,16 @@ export default {
   data() {
     return {
       isShow: true,
-      img_url_prefix: "http://localhost:9999/project/HL/static/",
-      articleList: [],
-      inputKey : "请输入相关文章关键字",
+      textUrl: "https://jiankang.cctv.com/2023/12/18/ARTI2hNZkGTXrG2ybqu1JKOF231218.shtml"
     }
   },
+  onLoad(query) {
+    // 通过传入的消息修改页面参数
+    this.textUrl = query.contUrl
+    uni.setNavigationBarTitle({
+      title:query.title ? query.title : "健康文章"
+    })
+  }
 }
 </script>
 

@@ -21,7 +21,7 @@
         </view>
         <view class="article-list">
             <view v-for="(item, index) in articleList" :key="item.aid">
-                <view class="article-item">
+                <view class="article-item" @tap.stop='enterArticle(item.content, item.title)'>
                     <view class="article-image">
                         <img :src="img_url_prefix + item.image" :alt="'图片_'+item.title">
                     </view>
@@ -44,7 +44,7 @@ export default {
     data() {
         return {
             isShow: true,
-            img_url_prefix: "http://localhost:9999/project/HL/static/",
+            img_url_prefix: "http://192.168.8.102:9999/project/HL/static/",
             articleList: [],
             inputKey : "请输入相关文章关键字",
         }
@@ -69,6 +69,23 @@ export default {
         // HACK 处理 uniApp 数据双向绑定BUG
         onInputKey(event){
             this.inputKey = event.detail.value
+        },
+        /**
+         * 携带参数进入文章内容页面
+         * @param {string} contUrl 文章url
+         * */
+        enterArticle(contUrl, contTitle) {
+            uni.navigateTo({
+                url:`/pages/article/content?contUrl=${contUrl}&title=${contTitle}`,
+                success:() => {
+                    console.log("链接跳转成功, 正在前往")
+                },
+                fail:() => {
+                  uni.showToast({
+                      title:"参数异常", icon:"error"
+                  })
+                }
+            })
         },
         /**
          * 搜索文章函数, 需要先检查用户输入的关键字是否合法,
