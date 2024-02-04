@@ -8,6 +8,7 @@ const store = new Vuex.Store({
         user: { },
         articles: [],
         currentData:{},
+        userPlanData: {},
     },
     mutations: {
         setUser: (state, newVal)=> {
@@ -18,6 +19,9 @@ const store = new Vuex.Store({
         },
         setCurrentData:(state, newVal)=>{
             state.currentData = newVal
+        },
+        setUserPlanData:(state, newVal) => {
+            state.userPlanData = newVal
         }
     },
     actions: {
@@ -57,6 +61,24 @@ const store = new Vuex.Store({
                 success: (res) => {
                     if(res.data.data) {
                         content.commit("setArticles", res.data.data.result)
+                    }
+                }
+            })
+        },
+        /**
+         * 请求当日的数据返回到到前端
+         * */
+        requestUserPlanData: (content, newVal) => {
+            uni.request({
+                url: `/api/plan/get?uid=${newVal.uid}`,
+                method:"GET",
+                header: {
+                    'token': newVal.token,
+                },
+                success: (res) => {
+                    console.log(res)
+                    if (res.data.data) {
+                        content.commit("setUserPlanData", res.data.data)
                     }
                 }
             })

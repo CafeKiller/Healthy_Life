@@ -1,5 +1,5 @@
 <script>
-import { mapMutations, mapState } from 'vuex'
+import { mapActions, mapMutations, mapState } from 'vuex'
 
 export default {
     data() {
@@ -7,19 +7,21 @@ export default {
         }
     },
     computed:{
-
+      ...mapState(["user"])
     },
     methods: {
-      ...mapMutations(["setUser"])
+      ...mapMutations(["setUser"]),
+      ...mapActions(['requestUserPlanData'])
     },
 		onLaunch: function() {
       uni.getStorage({
           key: "user_data",
-          success: (res)=>{
+          success: (res) => {
             console.log("App Launch => ", res.data)
             this.setUser(res.data)
           }
       })
+      this.requestUserPlanData({uid: this.user.uid, token:this.user.token})
 		},
 		onShow: function() {
 			// console.log('App Show')

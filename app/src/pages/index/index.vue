@@ -33,7 +33,7 @@
 				<view class="cal-left-box">
 					<span class="current">1200</span>
 					<span class="center">/</span>
-					<span class="target">2000</span>
+					<span class="target">{{userPlanData.calorie}}</span>
 					<view class="iconfont icon-qialuli"></view>
 				</view>
 				<view class="cal-right-box">
@@ -49,12 +49,12 @@
 			<view class="title">今日运动规划</view>
 			<view class="current-movement-box">
 				<view class="title">步数</view>
-				<view class="data">8000/10000 步</view>
+				<view class="data">8000 / {{userPlanData.kilometre}}步</view>
 				<view class="iconfont icon-paobu"></view>
 			</view>
 			<view class="current-aerobic-box">
 				<view class="title">有氧运动</view>
-				<view class="data">50min/150min</view>
+				<view class="data">50min / {{userPlanData.exerciseTime}}min</view>
 				<view class="iconfont icon-yundong-"></view>
 			</view>
 		</view>
@@ -87,7 +87,7 @@
 			}
 		},
 		computed:{
-			...mapState(['user',"currentData"])
+			...mapState(['user',"currentData","userPlanData"])
 		},
 		components:{
 			DialogDayData
