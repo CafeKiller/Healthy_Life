@@ -56,14 +56,11 @@
                 <view class="iconfont icon-qianjin"></view>
             </view>
         </view>
-
         <DialogDayData v-show='isShow'></DialogDayData>
-
     </view>
 </template>
 
 <script>
-
 import { mapMutations, mapState } from 'vuex'
 import DialogDayData  from "@/components/dialog/dialogDayData.vue"
 export default {
