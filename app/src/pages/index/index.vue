@@ -1,5 +1,13 @@
 <template>
 	<view class="content">
+
+		<van-notice-bar
+			color="red"
+			background="##d7f7f3"
+			left-icon="info-o">
+			每日数据需要手动更新才能保证数据准确性哦。
+		</van-notice-bar>
+
 		<!--	今日体重相关提示模块	-->
 		<view class="current-tips-box">
 				<view class="top-cont">
@@ -26,12 +34,20 @@
 					</view>
 				</view>
 		</view>
+
+
+		<van-notice-bar
+			style='margin-top: 20upx'
+			left-icon="volume-o"
+			text="在代码阅读过程中人们说脏话的频率是衡量代码质量的唯一标准。"
+		/>
+
 		<!--	今日卡路里消耗模块	-->
 		<view class="current-cal-cont">
 			<view class="title">今日卡路里消耗</view>
 			<view class="current-cal-box">
 				<view class="cal-left-box">
-					<span class="current">1200</span>
+					<span class="current">{{currentData.calorie}}</span>
 					<span class="center">/</span>
 					<span class="target">{{userPlanData.calorie}}</span>
 					<view class="iconfont icon-qialuli"></view>
@@ -49,19 +65,18 @@
 			<view class="title">今日运动规划</view>
 			<view class="current-movement-box">
 				<view class="title">步数</view>
-				<view class="data">8000 / {{userPlanData.kilometre}}步</view>
+				<view class="data">{{currentData.stepNum}} / {{userPlanData.kilometre}}步</view>
 				<view class="iconfont icon-paobu"></view>
 			</view>
 			<view class="current-aerobic-box">
 				<view class="title">有氧运动</view>
-				<view class="data">50min / {{userPlanData.exerciseTime}}min</view>
+				<view class="data">{{ currentData.exerciseTime }}min / {{userPlanData.exerciseTime}}min</view>
 				<view class="iconfont icon-yundong-"></view>
 			</view>
 		</view>
 		<!--	睡眠质量模块  -->
 		<view class="current-sheep-cont">
 			<view class="title">今日睡眠质量</view>
-			<img src='@/static/img.png' alt=''>
 		</view>
 
 		<!--	弹窗部分	-->
@@ -75,6 +90,7 @@
 </template>
 
 <script>
+	import { Notify } from 'vant';
 	import dayjs from 'dayjs'
 	import DialogDayData from '@/components/dialog/dialogDayData.vue'
 	import { mapMutations, mapState } from 'vuex'
@@ -90,7 +106,8 @@
 			...mapState(['user',"currentData","userPlanData"])
 		},
 		components:{
-			DialogDayData
+			DialogDayData,
+			[Notify.Component.name]: Notify.Component,
 		},
 		onLoad() {
 			// 进入页面后检查当前是否拥有当日数据, 没有则拉取后端数据
@@ -103,9 +120,12 @@
 					},
 					success: (res) => {
 						if (res.data.data) {
-							this.setCurrentData(res.data.data)
-							console.log("成功拉取到用户当日数据 =>", res)
+							this.setCurrentData(res.data.data);
+							console.log("成功拉取到用户当日数据 =>", res);
+							return;
 						}
+						this.isShowCommonDialog = true;
+						Notify({ type: 'warning', message: '今日的数据还没有更新哦' });
 					}
 				})
 			}

@@ -38,9 +38,11 @@ export const loginApi = async (ctx: Context, next: Next)=>{
   let {account, password} = ctx.request.body
   if (!account || !password) throw CODE.missingParameters
 
+  // 检验用户是否存在
   let userInfo =  await getUserByAccountService(account)
   if (!userInfo) throw CODE.userNotExist
 
+  // 检验密码是否正确
   if (userInfo.dataValues.password !== String(password)) throw CODE.passwordFailed
 
   let uid = userInfo.dataValues.uid
