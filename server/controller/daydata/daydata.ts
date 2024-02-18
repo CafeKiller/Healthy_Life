@@ -50,3 +50,7 @@ export const updateCurrentDayData = async (ctx: Context, next: Next) => {
 
     return next()
 }
+
+// TODO 获取最近七天的睡眠数据
+
+// TODO 获取昨日与今日的体重数据(计算后)
