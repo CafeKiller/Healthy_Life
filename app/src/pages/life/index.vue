@@ -1,5 +1,13 @@
 <template>
     <view class="content">
+
+        <van-popup
+          v-model="isShowDia"
+          closeable
+          position="bottom"
+          :style="{ height: '800upx' }"
+        >{{ title }}</van-popup>
+
         <!--头部-->
         <view class="header">
             <view class="tips">当前综合数据评分</view>
@@ -18,7 +26,7 @@
         <!--主体-->
         <view class="wrap">
             <view class="header-tips">点击下列一项即可生成对用报告哦~</view>
-            <div class="item">
+            <div class="item" @tap.stop='showDataReport()'>
                 <view class="title">体重变化</view>
                 <view class="iconfont icon-icontz"></view>
                 <view class="desc">
@@ -27,8 +35,8 @@
                     <span class="data">1.1KG</span>
                     <view class="tips">需要再接再厉呀</view>
                 </view>
-            </div>
-            <div class="item">
+            </div >
+            <div class="item" @tap.stop='showDataReport(2)'>
                 <view class="title">运动锻炼</view>
                 <view class="iconfont icon-shangzhiduanlian"></view>
                 <view class="desc">
@@ -67,14 +75,19 @@
 export default {
     data() {
         return {
-            title: '生活空间'
+            title: '生活空间1',
+            isShowDia: false,
+
         }
     },
     onLoad() {
 
     },
     methods: {
-
+        showDataReport(option = 1) {
+            this.isShowDia = true
+            this.title = `生活空间_${option}`
+        }
     }
 }
 </script>

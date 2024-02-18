@@ -43,6 +43,7 @@
 </template>
 
 <script>
+import { Notify } from 'vant';
 import { mapMutations, mapState } from 'vuex'
 
 export default {
@@ -77,7 +78,10 @@ export default {
      * 关闭每日数据弹窗组件显示
      * */
     closeDialog(){
-      this.$emit("UpdateDialogDayDataState", !this.isShowCommonDialog)
+      if (JSON.stringify(this.currentData) !== "{}") {
+        this.$emit("UpdateDialogDayDataState", !this.isShowCommonDialog)
+      }
+      Notify({ type: 'warning', message: '今日的数据还没有更新哦' });
     },
     updateDayDate(){
       if (this.inspectDayData()) {
