@@ -24,7 +24,9 @@ export const registerUserApi = async (ctx: Context, next: Next) => {
   if (accountExistInfo) throw CODE.userIsExist
   // 确认该账户可以注册再获取前端传入的其余次要参数
   let {sex, age, email, height, weight, user_tag} = ctx.request.body
-  let resultUserInfo =  await registerUserService({account, user_name, password, sex, age, email, height, weight, user_tag})
+  let resultUserInfo =
+    await registerUserService(
+        {account, user_name, password, sex, age, email, height, weight, user_tag})
   ctx.body = resultUserInfo.dataValues
 
   return next()

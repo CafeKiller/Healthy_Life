@@ -24,6 +24,7 @@ log4js.configure( {
 
 export const logger = log4js.getLogger()
 
+// 日志捕抓 配合log4j
 export const loggerMiddleware = async (ctx: Koa.Context, next: Koa.Next) => {
   const start:Date = new Date()
   await next()
@@ -34,5 +35,4 @@ export const loggerMiddleware = async (ctx: Koa.Context, next: Koa.Next) => {
       请求参数: ${JSON.stringify( ctx.request.body )} 
       响应参数: ${JSON.stringify(ctx.body)} - ${remoteAddress} - ${ms}ms`
   logger.info(logText)
-
 }

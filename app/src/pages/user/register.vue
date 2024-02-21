@@ -28,7 +28,7 @@ export default {
         };
     },
     methods: {
-
+        // 用戶註冊
         register() {
             let result = this.verifyInfo()
             if (!result) {

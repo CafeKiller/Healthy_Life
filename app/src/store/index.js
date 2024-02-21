@@ -30,6 +30,7 @@ const store = new Vuex.Store({
          * 并将登录态保持到缓存中
          * */
         userLogin: (context, newVal) => {
+            // eslint-disable-next-line no-undef
             uni.request({
                 url: '/api/user/login',
                 method: "POST",
@@ -46,6 +47,7 @@ const store = new Vuex.Store({
                         // 保存参数至VueX
                         context.commit("setUser", res.data.data)
                         // 备份至缓存中
+                        // eslint-disable-next-line no-undef
                         uni.setStorageSync("user_data", res.data.data)
                     }
                 }

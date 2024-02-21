@@ -23,8 +23,8 @@ export const getPlanDataApi = async (ctx: Context, next: Next) => {
 
 
 /**
- * @description 设置用户当前的健康计划单, 如果检查到当前用户没有计划表, 则创建一个新计划表, 如果用户当前拥有计划表,则对该计划表进行更新
- *
+ * @description 设置用户当前的健康计划单, 如果检查到当前用户没有计划表,
+ * 则创建一个新计划表, 如果用户当前拥有计划表,则对该计划表进行更新
  * */
 export const setPlanDataApi = async (ctx: Context, next: Next) => {
 
@@ -39,7 +39,8 @@ export const setPlanDataApi = async (ctx: Context, next: Next) => {
         if (!createResult) throw CODE.planAddError
         ctx.body = createResult.dataValues
     } else {
-        let updateResult =  await  updatePlanDataByUid(uid, {...params})
+        let updateResult =
+            await  updatePlanDataByUid(uid, {...params})
         if (!updateResult) throw  CODE.planUpdateError
         ctx.body = updateResult
     }
