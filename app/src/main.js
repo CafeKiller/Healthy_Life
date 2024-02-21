@@ -2,6 +2,9 @@ import Vue from 'vue'
 import App from './App'
 import Vant from "vant";
 import { Notify } from 'vant';
+import * as echarts from 'echarts'
+
+
 import './uni.promisify.adaptor'
 
 import 'vant/lib/index.css';
@@ -13,6 +16,7 @@ Vue.use(Vant)
 // 注册Vant同意消息提示组件
 Vue.use(Notify);
 Vue.config.productionTip = false
+Vue.prototype.$echarts = echarts
 
 App.mpType = 'app'
 

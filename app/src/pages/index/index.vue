@@ -77,6 +77,9 @@
 		<!--	睡眠质量模块  -->
 		<view class="current-sheep-cont">
 			<view class="title">今日睡眠质量</view>
+			<view class='sheep-echarts-cont'>
+				<view id='sheepEcharts' class='echarts-cont' style='width: 700upx; height: 500upx'></view>
+			</view>
 		</view>
 
 		<!--	弹窗部分	-->
@@ -101,6 +104,10 @@
 				isShowCommonDialog: false,
 				currentTime: "1月7日 19:56",
 			}
+		},
+
+		mounted() {
+			this.initSheepEchartsTable()
 		},
 		computed:{
 			...mapState(['user',"currentData","userPlanData"])
@@ -154,6 +161,30 @@
 			UpdateDialogDayDataState(data){
 				this.isShowCommonDialog = data
 			},
+			/**
+			 * 初始化 Echarts 图标, 数据为每日睡眠数据
+			 * */
+			initSheepEchartsTable() {
+				const sheepEcharts = this.$echarts.init(document.getElementById('sheepEcharts'));
+				// 指定图表的配置项和数据
+				let option = {
+					xAxis: {
+						type: 'category',
+						data: ['0217', '0218','0219', '0220', '0221']
+					},
+					yAxis: {
+						type: 'value'
+					},
+					series: [
+						{
+							data: [3, 7, 1, 4, 5],
+							type: 'line',
+							smooth: true
+						}
+					]
+				};
+				sheepEcharts.setOption(option)
+			}
 		}
 	}
 </script>

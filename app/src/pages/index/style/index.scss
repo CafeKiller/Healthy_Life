@@ -252,8 +252,14 @@
         width: 750upx;
         height: 600upx;
         background-color: #fff;
-        img {
-            width: 720upx;
+        .sheep-echarts-cont {
+            position: relative;
+            width: 700upx;
+            height: 400upx;
+            .echarts-cont {
+                position: absolute;
+                top: -50upx;
+            }
         }
     }
 }
