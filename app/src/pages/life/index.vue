@@ -1,6 +1,7 @@
 <template>
     <view class="content">
 
+        <!-- 报告弹窗 -->
         <van-popup
           v-model="isShowDia"
           closeable
@@ -11,7 +12,17 @@
         <!--头部-->
         <view class="header">
             <view class="tips">当前综合数据评分</view>
-            <view class="mark">76 <span>分</span></view>
+<!--            <view class="mark">76 <span>分</span></view>-->
+            <!-- 环状计分组件 -->
+            <van-circle
+              class="mark"
+              v-model="currentRate"
+              :rate="targetRate"
+              :speed="100"
+              size='150upx'
+              color='#00b09a'
+              stroke-width='80'
+              :text="text" />
             <view class="desc">
                 <span>评价</span> <br>
                 <p>当前评分中等, 主要需要改善的地方有体重问题和睡眠问题,
@@ -77,11 +88,17 @@ export default {
         return {
             title: '生活空间1',
             isShowDia: false,
-
+            currentRate: 0,
+            targetRate: 76,
         }
     },
     onLoad() {
 
+    },
+    computed: {
+        text() {
+            return this.currentRate.toFixed(0);
+        },
     },
     methods: {
         showDataReport(option = 1) {

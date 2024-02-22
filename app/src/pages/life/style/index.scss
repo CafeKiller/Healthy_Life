@@ -14,16 +14,18 @@
     opacity: .7;
   }
   .mark {
+    position: absolute;
+    top: 100upx;
+    left: 80upx;
     width: 280upx;
-    padding-left: 20upx;
     font-size: 100upx;
     font-weight: 800;
     text-align: center;
     color: #ffffff;
-    span {
-      margin-left: 10upx;
-      font-size: 40upx;
+    .van-circle__text {
+      font-size: 56upx;
       font-weight: 800;
+      color: #ffffff;
     }
   }
   .desc {
