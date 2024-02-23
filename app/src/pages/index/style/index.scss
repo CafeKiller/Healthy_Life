@@ -253,12 +253,15 @@
         height: 600upx;
         background-color: #fff;
         .sheep-echarts-cont {
+            margin: 0 auto 0;
             position: relative;
             width: 700upx;
             height: 400upx;
             .echarts-cont {
                 position: absolute;
-                top: -50upx;
+                top: -120upx;
+                left: -60upx;
+                transform: scale(.9);
             }
         }
     }

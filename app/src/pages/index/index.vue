@@ -78,7 +78,9 @@
 		<view class="current-sheep-cont">
 			<view class="title">今日睡眠质量</view>
 			<view class='sheep-echarts-cont'>
-				<view id='sheepEcharts' class='echarts-cont' style='width: 700upx; height: 500upx'></view>
+				<view id='sheepEcharts'
+							class='echarts-cont'
+							style='width: 900upx; height: 700upx'></view>
 			</view>
 		</view>
 
@@ -98,11 +100,20 @@
 	import DialogDayData from '@/components/dialog/dialogDayData.vue'
 	import { mapMutations, mapState } from 'vuex'
 
+	const BASE_TIME = '2024-01-01'
 	export default {
 		data() {
 			return {
 				isShowCommonDialog: false,
 				currentTime: "1月7日 19:56",
+				dayArr:['0217', '0218','0219', '0220', '0221'],
+				sheepDataArr: [
+					"2024-01-01 7:00",
+					"2024-01-01 6:20",
+					"2024-01-01 6:40",
+					"2024-01-01 6:52",
+					"2024-01-01 7:13"
+				]
 			}
 		},
 
@@ -170,14 +181,14 @@
 				let option = {
 					xAxis: {
 						type: 'category',
-						data: ['0217', '0218','0219', '0220', '0221']
+						data: this.dayArr
 					},
 					yAxis: {
-						type: 'value'
+						type: 'time',
 					},
 					series: [
 						{
-							data: [3, 7, 1, 4, 5],
+							data: this.sheepDataArr,
 							type: 'line',
 							smooth: true
 						}

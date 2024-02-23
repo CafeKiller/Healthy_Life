@@ -3,16 +3,18 @@
 
         <!-- 报告弹窗 -->
         <van-popup
+          class='report-dialog'
           v-model="isShowDia"
           closeable
           position="bottom"
           :style="{ height: '800upx' }"
-        >{{ title }}</van-popup>
+        >
+            <van-progress :percentage="50" stroke-width="8" />
+        </van-popup>
 
         <!--头部-->
         <view class="header">
             <view class="tips">当前综合数据评分</view>
-<!--            <view class="mark">76 <span>分</span></view>-->
             <!-- 环状计分组件 -->
             <van-circle
               class="mark"
