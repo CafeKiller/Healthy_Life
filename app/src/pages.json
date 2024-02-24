@@ -53,6 +53,12 @@
 			"style": {
 				"navigationBarTitleText": "官方公告"
 			}
+		},
+		{
+			"path": "pages/user/update",
+			"style": {
+				"navigationBarTitleText": "数据修改"
+			}
 		}
 	],
 	"globalStyle": {
