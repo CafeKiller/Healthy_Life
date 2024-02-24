@@ -9,7 +9,24 @@
           position="bottom"
           :style="{ height: '800upx' }"
         >
-            <van-progress :percentage="50" stroke-width="8" />
+            <view class='report-dialog-cont'>
+                <view class='title'>最近一周体重报告</view>
+                <view class='scoring-model'>
+                    <view class='tips'>单项评分</view>
+                    <van-progress :percentage="87" pivot-text="87" stroke-width="10"/>
+                </view>
+                <view class='contrast-model'>
+                    <view class='item'></view>
+                    <view class='item'></view>
+                    <view class='item'></view>
+                </view>
+                <view class='comment-model'>
+                    <view class='tips'>报告结果</view>
+                    <view class='comment'>
+
+                    </view>
+                </view>
+            </view>
         </van-popup>
 
         <!--头部-->

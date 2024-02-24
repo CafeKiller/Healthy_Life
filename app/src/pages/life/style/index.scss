@@ -1,6 +1,40 @@
 .report-dialog {
-  padding-top: 40upx;
+  padding-top: 80upx;
   box-sizing: border-box;
+  .report-dialog-cont {
+    margin: 0 auto 0;
+    width: 700upx;
+    height: 400upx;
+    .title {
+      font-size: 38upx;
+      margin-bottom: 20upx;
+    }
+    .scoring-model {
+      margin: 0 auto 32upx;
+      width: 700upx;
+    }
+    .contrast-model {
+      width: 700upx;
+      display: flex;
+      justify-content: space-around;
+      .item {
+        width: 200upx;
+        height: 240upx;
+        background-color: var(--sub-color-1);
+      }
+    }
+    .comment-model {
+      margin: 20upx auto 0;
+      width: 700upx;
+      height: 400upx;
+      .comment {
+        margin-top: 16upx;
+        height: 360upx;
+        background-color: #ccc;
+      }
+    }
+  }
+
 }
 .header {
   position: relative;
