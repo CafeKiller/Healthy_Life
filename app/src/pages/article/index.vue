@@ -20,19 +20,26 @@
             </div>
         </view>
         <view class="article-list">
-            <view v-for="(item, index) in articleList" :key="item.aid">
-                <view class="article-item" @tap.stop='enterArticle(item.content, item.title)'>
-                    <view class="article-image">
-                        <img :src="img_url_prefix + item.image" :alt="'图片_'+item.title">
-                    </view>
-                    <view class="article-title">{{item.title}}</view>
-                    <view class="article-cont">
-                        <p class="tags">{{item.tags}}</p>
-                        <p class="author">{{item.author}}</p>
-                        <p class="time">{{item.updated_at}}</p>
+            <scroll-view
+              lower-threshold='0'
+              class="scroll-view"
+              scroll-y="true"
+              @scrolltolower="onScrollToLower"
+            >
+                <view v-for="(item, index) in articleList" :key="item.aid">
+                    <view class="article-item" @tap.stop='enterArticle(item.content, item.title)'>
+                        <view class="article-image">
+                            <img :src="img_url_prefix + item.image" :alt="'图片_'+item.title">
+                        </view>
+                        <view class="article-title">{{item.title}}</view>
+                        <view class="article-cont">
+                            <p class="tags">{{item.tags}}</p>
+                            <p class="author">{{item.author}}</p>
+                            <p class="time">{{item.updated_at}}</p>
+                        </view>
                     </view>
                 </view>
-            </view>
+            </scroll-view>
         </view>
     </view>
 </template>
@@ -140,6 +147,12 @@ export default {
                 this.isShow = !this.isShow
                 this.articleList = this.articles
             }
+        },
+        /**
+         * 上拉刷新文章数据
+         * */
+        onScrollToLower() {
+            // TODO 上拉请求数据
         }
     }
 }

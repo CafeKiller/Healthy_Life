@@ -80,11 +80,14 @@
 .article-list {
   margin: 0 auto 0;
   width: 710upx;
+  .scroll-view {
+    width: 710upx;
+    height: 1060upx;
+  }
   .article-item {
     position: relative;
     display: flex;
     align-items: center;
-    margin-bottom: 20upx;
     width: 700upx;
     height: 240upx;
     border-radius: 10upx;
