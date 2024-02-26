@@ -33,12 +33,14 @@ export const getCurrentDayData = async (ctx: Context, next: Next) => {
 
 
     let result = await getDayDataService(uid)
-    console.log(result)
     ctx.body = result?.dataValues
 
     return next()
 }
 
+/**
+ * 更新用户当日数据信息
+ * */
 export const updateCurrentDayData = async (ctx: Context, next: Next) => {
     let {did, ...params} = ctx.request.query
     if (!did) throw CODE.needMissingParameters

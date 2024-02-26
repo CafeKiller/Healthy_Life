@@ -9,7 +9,7 @@
         </div>
         <div class='data-list'>
           <div class='data-item'>
-            <input class='col left' placeholder='今日体重' ></input>
+            <input class='col left' type='number' placeholder='今日体重' v-model='day_data.weight'></input>
             <div class='col right'>60KG</div>
           </div>
           <div class='data-item'>
@@ -57,6 +57,7 @@ export default {
         step_num: null,
         exercise_time: null,
         foods: null,
+        weight: 0,
       }
     }
   },
@@ -70,6 +71,7 @@ export default {
       this.day_data.sleep_time = this.currentData.sleepTime
       this.day_data.exercise_time = this.currentData.exerciseTime
       this.day_data.foods = this.currentData.foods
+      this.day_data.weight = this.currentData.weight
     }
   },
   methods:{
@@ -80,15 +82,21 @@ export default {
     closeDialog(){
       if (JSON.stringify(this.currentData) !== "{}") {
         this.$emit("UpdateDialogDayDataState", !this.isShowCommonDialog)
+        return
       }
       Notify({ type: 'warning', message: '今日的数据还没有更新哦' });
     },
+    /* 处理更新按钮函数 */
+    handleUpdateBtn(){
+
+    },
+    /* 创建数据 */
     updateDayDate(){
       if (this.inspectDayData()) {
         this.disposeDayData()
         uni.request({
           method:"GET",
-          url:`/api/data/add?uid=${this.user.uid}&calorie=${this.day_data.calorie}&sleepTime=${this.day_data.sleep_time}&stepNum=${this.day_data.step_num}&exerciseTime=${this.day_data.exercise_time}`,
+          url:`/api/data/add?uid=${this.user.uid}&calorie=${this.day_data.calorie}&sleepTime=${this.day_data.sleep_time}&stepNum=${this.day_data.step_num}&exerciseTime=${this.day_data.exercise_time}&weight=${this.day_data.weight}`,
           header:{
             "token": this.user.token
           },
