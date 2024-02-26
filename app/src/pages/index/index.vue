@@ -163,7 +163,7 @@
 			 * */
 			updateCurrentData(){
 				setInterval(()=>{
-					this.currentData = dayjs().format("MM月DD日 HH:mm")
+					this.currentTime = dayjs().format("MM月DD日 HH:mm")
 				}, 60000)
 			},
 			/**
