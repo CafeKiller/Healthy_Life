@@ -121,7 +121,7 @@ export default {
                 uni.navigateTo({ url:"./login" })
                 return
             }
-            // TODO 用户登录后 点击数据卡 修改数据
+            uni.navigateTo({url: "./update?id=iWeight"})
         }
     }
 }

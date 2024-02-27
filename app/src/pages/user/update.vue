@@ -51,6 +51,7 @@
       <van-field
         v-model="old_password"
         type="password"
+        ref="iWeight"
         name="体重"
         label="体重"
         placeholder="体重"
@@ -93,6 +94,7 @@ export default {
 
   data() {
     return {
+      queryID: "iWeight",
       username: "",
       old_password: "",
       new_password: "",
@@ -103,6 +105,14 @@ export default {
   methods: {
 
   },
+  mounted() {
+    // 进入页面后自动锁定一个参数, 锁定参数由传入 queryID 决定.
+    this.$refs[this.queryID].focus()
+  },
+  onLoad(query) {
+    // 获取 URL 携带参数
+    this.queryID = query.id
+  }
 }
 </script>
 
