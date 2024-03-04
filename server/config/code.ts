@@ -19,6 +19,7 @@ export const CODE = {
   missingParameters: {code: 40001, message: "参数缺失", key: "missingParameters"},
   needMissingParameters : {code: 40002, message: "必要参数缺失", key:"needMissingParameters"},
   errorTypeParameters: {code: 40003, message: "参数类型错误", key: "errorTypeParameters"},
+  errorImageUploadParameters: {code: 40004, message: "图片上传失败", key: "errorImageUploadParameters"},
 
   // 50000 [数据库校验产生的错误]
   adminUserIsExist: {code: 50001, message: "该管理员已存在", key: "adminUserIsExist"},

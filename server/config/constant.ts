@@ -31,3 +31,7 @@ export const JWT = {
   secret: "ConanEdogawa",
   expires: 60 * 60 * 24 * 30 // 30day
 }
+
+export  const NGINX_STATIC_PATH = {
+  uploadPath: "D:\\Devtool\\Nginx\\nginx-1.24.0\\html\\project\\HL\\static",
+}

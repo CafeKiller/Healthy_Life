@@ -26,4 +26,7 @@ router.get(project.article+"/all", controllers.article_article.getArticleListApi
 router.get(project.article+"/find", controllers.article_article.getArticleByAidApi)
 router.get(project.article+"/title/:title", controllers.article_article.getArticleByTitleListApi)
 
+// 图片上传
+router.post("/upload",controllers.utils_file.uploadUserCover)
+
 export default router
