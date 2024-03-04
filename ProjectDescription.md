@@ -39,63 +39,60 @@
 ```
 
 ## 数据库设计
-```ts
-// 管理员用户表
-adminUser = {
-  id: number,         // 管理员id 主键 自增
-  account: string,    // 账户 NotNull
-  password: string,   // 密码 NotNull
-  avatar: string,     // 头像
-  is_del
-}
 
-// 常规用户表
-normalUser = {
-  uid: number,        // 用户id 主键 自增
-  user_name: string,  // 用户名  NotNull 
-  avatar: string,     // 用户头像 
-  age: number,        // 用户年龄 NotNull                 
-  sex: number,        // 用户性别
-  height: string,     // 用户身高
-  weight: string,     // 用户体重
-  user_tag: string,   // 用户特征Tag
-  token: string,      // token
-  email: string,      // 用户邮箱
-  is_del,
-}
+### 管理员表 (admin_users)
 
-// 每日数据表
-dayData = {
-  did: number,            // 数据id 主键 自增
-  uid: number,            // 用户id NotNull
-  calorie: number,        // 当日摄入卡路里
-  sleepTime: Date,        // 当日睡眠时间
-  exerciseTime: Date,     // 当日锻炼时间
-  foods: string,          // 当日食物
-  is_del
-}
+| 字段名        | 字段描述   | 数据类型     | 长度  | 必填 | 备注          |
+|:-----------|:-------|:---------|:----|:---|:------------|
+| id         | 用户ID   | int      | 10  | 是  | 主键          |
+| account    | 账户     | varchar  | 255 | 是  | 唯一校验        |
+| password   | 密码     | varchar  | 255 | 是  | 哈希加密        |
+| level      | 权限等级   | int      | 10  | 是  | 1全部权限 2增改权限 |
+| phone      | 联系方式   | int      | 11  | 否  |             |
+| email      | 联系邮箱   | varchar  | 128 | 否  |             |
+| created_at | 创建时间   | datetime |     | 否  |             |
+| udpated_at | 最后修改时间 | datetime |     | 否  |             |
+| deleted_at | 删除时间   | datetime |     | 否  |             |
+| last_login | 最后登录时间 | datetime |     | 否  |             |
+| is_del     | 是否删除   | int      | 10  | 否  | 0未删除 1已删除   |
 
-// 计划表
-plan = {
-  pid: number,              // 计划表id 主键 自增
-  uid: number,              // 用户uid NotNull
-  bloodPressure: string,    // 血压
-  bmi: string,              // 体脂率
-  weight: string,           // 体重
-  heartRate: string,        // 心率
-  calorie: string,          // 卡路里
-  kilometre: string,        // 公里数
-  is_del
-}
 
-// 文章表
-article = {
-  aid: number,            // 文章id 主键            
-  type: boolean,          // 文章类别: 0原创 1转载 2未知
-  title: string,          // 文章标题 
-  content: string,        // 文章内容
-  author: string,         // 文章作者 默认:佚名
-  like: number,           // 文章点赞数      
-  is_del,
-}
-```
+### 普通用户表 (normal_users)
+
+| 字段名        | 字段描述   | 数据类型     | 长度  | 必填 | 备注        |
+|:-----------|:-------|:---------|:----|:---|:----------|
+| id         | 用户ID   | int      | 10  | 是  | 主键        |
+| account    | 账户     | varchar  | 255 | 是  | 唯一校验      |
+| username   | 用户昵称   | varchar  | 255 | 是  |           |
+| password   | 密码     | varchar  | 255 | 是  | 哈希加密      |
+| gender     | 用户性别   | varchar  | 64  | 是  |           |
+| age        | 用户年龄   | varchar  | 64  | 是  |           |
+| gender     | 用户性别   | varchar  | 255 | 是  | 用于定制健康规划  |
+| age        | 用户年龄   | varchar  | 255 | 是  | 用于定制健康规划  |
+| height     | 用户身高   | varchar  | 255 | 是  | 用于定制健康规划  |
+| weight     | 用户体重   | varchar  | 255 | 是  | 用于定制健康规划  |
+| tags       | 用户特征   | varchar  | 255 | 是  | 用于动态调整规划  |
+| email      | 联系邮箱   | varchar  | 128 | 否  |           |
+| created_at | 创建时间   | datetime |     | 否  |           |
+| udpated_at | 最后修改时间 | datetime |     | 否  |           |
+| deleted_at | 删除时间   | datetime |     | 否  |           |
+| last_login | 最后登录时间 | datetime |     | 否  |           |
+| is_del     | 是否删除   | int      | 10  | 否  | 0未删除 1已删除 |
+
+
+### 文章表 ()
+
+| 字段名        | 字段描述   | 数据类型     | 长度  | 必填 | 备注           |
+|:-----------|:-------|:---------|:----|:---|:-------------|
+| id         | 文章ID   | int      | 10  | 是  | 主键           |
+| title      | 文章标题   | varchar  | 255 | 是  | 唯一校验         |
+| content    | 文章内容   | text     |     | 否  | markdown文本格式 |
+| author     | 文章作者   | varchar  | 255 | 是  | 默认佚名         |
+| cover      | 文章封面图片 | varchar  | 255 | 否  | URL格式        |
+| likes      | 文章点赞数  | int      | 10  | 否  |              |
+| views      | 文章阅读量  | int      | 10  | 否  |              |
+| type       | 文章类型   | int      | 10  | 是  | 0原创 1转载 2未知  |
+| created_at | 创建时间   | datetime |     | 否  |              |
+| udpated_at | 最后修改时间 | datetime |     | 否  |              |
+| deleted_at | 删除时间   | datetime |     | 否  |              |
+| is_del     | 是否删除   | int      | 10  | 否  | 0未删除 1已删除    |
