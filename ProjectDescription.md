@@ -80,7 +80,7 @@
 | is_del     | 是否删除   | int      | 10  | 否  | 0未删除 1已删除 |
 
 
-### 文章表 ()
+### 文章表 (articles)
 
 | 字段名        | 字段描述   | 数据类型     | 长度  | 必填 | 备注           |
 |:-----------|:-------|:---------|:----|:---|:-------------|
@@ -96,3 +96,46 @@
 | udpated_at | 最后修改时间 | datetime |     | 否  |              |
 | deleted_at | 删除时间   | datetime |     | 否  |              |
 | is_del     | 是否删除   | int      | 10  | 否  | 0未删除 1已删除    |
+
+### 报告表 (reports)
+
+| 字段名          | 字段描述   | 数据类型     | 长度  | 必填 | 备注          |
+|:-------------|:-------|:---------|:----|:---|:------------|
+| id           | 报告ID   | int      | 10  | 是  | 主键          |
+| uid          | 用户关联ID | int      | 10  | 是  |             |
+| report_date  | 报告日期   | varchar  | 255 | 是  | 唯一校验        |
+| type         | 报告类型   | int      | 10  | 是  | 0周报 1月报 2季报 |
+| score        | 综合评分   | int      | 10  | 是  |             |
+| comment      | 总体评价   | varchar  | 255 | 否  |             |
+| weight       | 体重     | varchar  | 64  | 是  |             |
+| weight_score | 体重评分   | int      | 10  | 是  |             |
+| sports       | 运动量    | varchar  | 64  | 是  |             |
+| sports_score | 运动量 评分 | int      | 10  | 是  |             |
+| sleep        | 睡眠质量   | varchar  | 64  | 是  |             |
+| sleep_score  | 睡眠质量评分 | int      | 10  | 是  |             |
+| foods        | 睡眠质量   | varchar  | 64  | 是  |             |
+| foods_score  | 睡眠质量评分 | int      | 10  | 是  |             |
+| created_at   | 创建时间   | datetime |     | 否  |             |
+| udpated_at   | 最后修改时间 | datetime |     | 否  |             |
+| deleted_at   | 删除时间   | datetime |     | 否  |             |
+| is_del       | 是否删除   | int      | 10  | 否  | 0未删除 1已删除   |
+
+### 健康计划表 (plans)
+
+| 字段名           | 字段描述   | 数据类型     | 长度  | 必填 | 备注        |
+|:--------------|:-------|:---------|:----|:---|:----------|
+| id            | 计划ID   | int      | 10  | 是  | 主键        |
+| uid           | 用户关联ID | int      | 10  | 是  |           |
+| plan_name     | 计划表名称  | varchar  | 255 | 是  |           |
+| plan_desc     | 计划表备注  | text     |     | 否  |           |
+| weight        | 体重     | varchar  | 64  | 是  |           |
+| exercise_time | 锻炼时间   | varchar  | 64  | 是  |           |
+| kilometre     | 步数     | varchar  | 64  | 是  |           |
+| calorie       | 卡路里    | varchar  | 64  | 是  |           |
+| bmi           | BMI指标  | varchar  | 64  | 否  |           |
+| sleep_time    | 睡眠时间   | varchar  | 64  | 是  |           |
+| rem_time      | 提醒时间   | datetime |     | 否  | 默认21:00   |
+| created_at    | 创建时间   | datetime |     | 否  |           |
+| udpated_at    | 最后修改时间 | datetime |     | 否  |           |
+| deleted_at    | 删除时间   | datetime |     | 否  |           |
+| is_del        | 是否删除   | int      | 10  | 否  | 0未删除 1已删除 |
