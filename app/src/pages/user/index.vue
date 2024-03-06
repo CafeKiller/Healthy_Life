@@ -11,23 +11,23 @@
             </view>
         </view>
         <view class="wrap">
-            <view class="other-info" @tap.stop="userDataHandle">
-                <view class="other-info-item">
+            <view class="other-info" >
+                <view class="other-info-item" @tap.stop="userDataHandle('iWeight')">
                     <view class="title">体重</view>
                     <view class="iconfont icon-icon"></view>
                     <view class="data">60<span class="unit">KG</span></view>
                 </view>
-                <view class="other-info-item">
+                <view class="other-info-item" @tap.stop="userDataHandle('iHeight')">
                     <view class="title">身高</view>
                     <view class="iconfont icon-shengao"></view>
                     <view class="data">175<span class="unit">cm</span></view>
                 </view>
-                <view class="other-info-item">
+                <view class="other-info-item" @tap.stop="userDataHandle('iCholesterol')">
                     <view class="title">血压</view>
                     <view class="iconfont icon-shouye"></view>
                     <view class="data">90<span class="unit">mmHg</span></view>
                 </view>
-                <view class="other-info-item">
+                <view class="other-info-item" @tap.stop="userDataHandle('iHeartRate')">
                     <view class="title">心率</view>
                     <view class="iconfont icon-heart-rate"></view>
                     <view class="data">60<span class="unit">Bpm</span></view>
@@ -116,12 +116,12 @@ export default {
          * 用户展示数据处理函数, 同样需要先检查用户是否登录,
          * 如果用户登录了就拉起用户数据修改弹窗
          * */
-        userDataHandle(){
+        userDataHandle(queryID = "iWeight"){
             if(!this.user.uid) {
                 uni.navigateTo({ url:"./login" })
                 return
             }
-            uni.navigateTo({url: "./update?id=iWeight"})
+            uni.navigateTo({url: "./update?id="+queryID})
         }
     }
 }

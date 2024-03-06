@@ -139,3 +139,41 @@
 | udpated_at    | 最后修改时间 | datetime |     | 否  |           |
 | deleted_at    | 删除时间   | datetime |     | 否  |           |
 | is_del        | 是否删除   | int      | 10  | 否  | 0未删除 1已删除 |
+
+### 每日数据表 (day_data)
+
+| 字段名           | 字段描述   | 数据类型     | 长度  | 必填 | 备注        |
+|:--------------|:-------|:---------|:----|:---|:----------|
+| id            | 单日数据ID | int      | 10  | 是  | 主键        |
+| uid           | 用户关联ID | int      | 10  | 是  |           |
+| p_id          | 计划表ID  | int      | 10  | 是  | 关联对应计划表   |
+| weight        | 体重     | varchar  | 64  | 是  |           |
+| exercise_time | 锻炼时间   | varchar  | 64  | 是  |           |
+| kilometre     | 步数     | varchar  | 64  | 是  |           |
+| calorie       | 卡路里    | varchar  | 64  | 是  |           |
+| bmi           | BMI指标  | varchar  | 64  | 否  |           |
+| sleep_time    | 睡眠时间   | varchar  | 64  | 是  |           |
+| foods         | 食物     | varchar  | 255 | 否  | 可转换为卡路里   |
+| created_at    | 创建时间   | datetime |     | 否  |           |
+| udpated_at    | 最后修改时间 | datetime |     | 否  |           |
+| deleted_at    | 删除时间   | datetime |     | 否  |           |
+| is_del        | 是否删除   | int      | 10  | 否  | 0未删除 1已删除 |
+
+### 通知表 (notices)
+
+| 字段名          | 字段描述   | 数据类型     | 长度  | 必填 | 备注        |
+|:-------------|:-------|:---------|:----|:---|:----------|
+| id           | 公告ID   | int      | 10  | 是  | 主键        |
+| auid         | 管理员ID  | int      | 10  | 是  |           |
+| title        | 标题     | varchar  | 255 | 是  |           |
+| release_time | 发布时间   | datetime |     | 否  | 定时发布      |
+| tags         | 相关标签   | varchar  | 255 | 否  |           |
+| main_text    | 主要内容   | text     |     | 是  |           |
+| sub_text     | 次要内容   | varchar  | 64  | 否  |           |
+| is_public    | 通知范围   | int      | 10  | 是  | 0全部 1管理员  |
+| is_sticky    | 是否置顶   | boolean  |     | 否  |           |
+| designated   | 指定通知用户 | varchar  | 255 | 否  | 用户ID使用,分隔 |
+| created_at   | 创建时间   | datetime |     | 否  |           |
+| udpated_at   | 最后修改时间 | datetime |     | 否  |           |
+| deleted_at   | 删除时间   | datetime |     | 否  |           |
+| is_del       | 是否删除   | int      | 10  | 否  | 0未删除 1已删除 |
