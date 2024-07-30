@@ -58,3 +58,16 @@ export const decodeToken = (token: string) => {
 export const generatorToken = (userId: number): string => {
   return jwt.sign( {userId}, JWT.secret, { expiresIn: JWT.expires })
 }
+
+/**
+ * @description: 验证 JWTToken 的签名和有效期
+ * @return
+ * */
+export const verifyJWTToken = (token: string, secret: string) => {
+  try {
+    const decoded = jwt.verify(token, secret)
+    return decoded
+  } catch (err) {
+    throw new Error("token不合法")
+  }
+}
